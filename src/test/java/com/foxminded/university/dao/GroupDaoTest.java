@@ -7,13 +7,24 @@ import javax.sql.DataSource;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.testcontainers.containers.PostgreSQLContainer;
 
-class GroupDaoTest {
+@RunWith(SpringRunner.class)
 
+class GroupDaoTest extends AbstractTransactionalJUnit4SpringContextTests{
+	
+	@Autowired
+	private GroupDao groupDao;
+	
 	private static PostgreSQLContainer postgres = new PostgreSQLContainer();
 
+
+	
 	@BeforeAll
 	public static void startDb() {
 		postgres.start();
