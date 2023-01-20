@@ -2,10 +2,13 @@ package com.foxminded.university.dao;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.foxminded.university.models.Student;
 
+@Repository
 public class StudentDao {
 
 	private static final String GET_ALL_STUDENTS_QUERY = "SELECT * FROM students";
@@ -13,8 +16,9 @@ public class StudentDao {
 	private static final String INSERT_STUDENTS_QUERY = "INSERT INTO students (first_name, last_name, group) "
 			+ "     VALUES (?, ?, ?)";
 
-	private JdbcTemplate jdbcTemplate;
+	private final JdbcTemplate jdbcTemplate;
 
+	@Autowired
 	public StudentDao(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}

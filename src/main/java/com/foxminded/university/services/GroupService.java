@@ -1,8 +1,8 @@
 package com.foxminded.university.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.io.InputStream;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.foxminded.university.configs.DaoConfig;
 import com.foxminded.university.dao.GroupDao;
@@ -12,12 +12,15 @@ public class GroupService {
 	
 	private AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DaoConfig.class);
 
-	private GroupDao dao = context.getBean("groupDao", GroupDao.class);;
+	private GroupDao dao = context.getBean("groupDao", GroupDao.class);
 	
 	public void test () {
-		Group group = new Group();
-		group.setName("jdbc4");
-		dao.insert(group);
+//		List<Group> groups = dao.getAllGroups();
+//		for(Group group : groups) {
+//			System.out.println(group.toString());
+//		}
+		Group group = dao.getGroupById(2);
+		System.out.println(group.toString());
 	}
 
 }
