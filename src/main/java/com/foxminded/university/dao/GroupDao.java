@@ -3,12 +3,10 @@ package com.foxminded.university.dao;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.foxminded.university.configs.DaoConfig;
 import com.foxminded.university.models.Group;
 
 @Repository
@@ -16,6 +14,7 @@ public class GroupDao {
 
 	private static final String DELETE_BY_ID_QUERY = "DELETE FROM groups WHERE id = ?";
 	private static final String INSERT_GROUPS_QUERY = "INSERT INTO groups (name) VALUES (?)";
+	private static final String DELETE_ALL = "DELETE FROM groups";
 
 	private final JdbcTemplate jdbcTemplate;
 
@@ -38,6 +37,10 @@ public class GroupDao {
 
 	public void deleteById(int groupId) {
 		jdbcTemplate.update(DELETE_BY_ID_QUERY, groupId);
+	}
+	
+	public void deleteAll() {
+		jdbcTemplate.update(DELETE_ALL);
 	}
 
 	public List<Group> getAllGroups() {
