@@ -50,8 +50,7 @@ public class GroupDao {
 
 	public Group getGroupById(int groupId) {
 		String sql = "SELECT * FROM groups WHERE id = ?";
-		Group group = null;
-		group = jdbcTemplate.queryForObject(sql, rowMapper, groupId);
+		Group group = jdbcTemplate.queryForObject(sql, rowMapper, groupId);
 		return group;
 	}
 
