@@ -20,17 +20,17 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-import com.foxminded.university.models.Group;
+import com.foxminded.university.models.Teacher;
 
 @SpringBootTest
 @Testcontainers
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @TestPropertySource(locations = "classpath:application.properties")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-class GroupDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
+class TeacherDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 	
 	@Autowired
-	private GroupDao groupDao;
+	private TeacherDao teacherDao;
 
 	private final static String SCRIPT_DB = "db.sql";
 
@@ -51,58 +51,54 @@ class GroupDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 	public static void stopContainer() {
 		postgreSQLContainer.stop();
 	}
-	
-
-
 
 	@Test
-	void testInsertGroup() {
-		Group group = new Group();
-		group.setId(0);
-		group.setName("DaoTest");
-		groupDao.insert(group);
-		int expected = 5;
-		int actual = groupDao.getAllGroups().size();
+	void testInsertTeacher() {
+		Teacher teacher = new Teacher();
+		teacher.setFirstName("123");
+		teacher.setLastName("321");
+		int expected = teacherDao.getAllTeachers().size() + 1;
+		teacherDao.insert(teacher);
+		int actual = teacherDao.getAllTeachers().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
-	void testInsertListOfGroup() {
-		Group group = new Group();
-		group.setId(1);
-		group.setName("DaoTest");
-		Group group2 = new Group();
-		group2.setId(2);
-		group2.setName("DaoTest5");
-		List<Group> groups = new LinkedList<>();
-		groups.add(group);
-		groups.add(group2);
-		groupDao.insert(groups);
-		int expected = 6;
-		int actual = groupDao.getAllGroups().size();
+	void testInsertListOfTeacher() {
+		Teacher teacher1 = new Teacher();
+		Teacher teacher2 = new Teacher();
+		teacher1.setFirstName("123");
+		teacher1.setLastName("321");
+		teacher2.setFirstName("456");
+		teacher2.setLastName("654");
+		List<Teacher> teachers = new LinkedList<>();
+		teachers.add(teacher1);
+		teachers.add(teacher2);
+		int expected = teacherDao.getAllTeachers().size() + 2;
+		teacherDao.insert(teachers);
+		int actual = teacherDao.getAllTeachers().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testDeleteById() {
-		List<Group> groups = groupDao.getAllGroups();
-		groupDao.deleteById(groups.get(1).getId());
+		teacherDao.deleteById(teacherDao.getAllTeachers().get(1).getTeacherId());
 		int expected = 3;
-		int actual = groupDao.getAllGroups().size();
+		int actual = teacherDao.getAllTeachers().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testGetAllGroups() {
 		int expected = 4;
-		int actual = groupDao.getAllGroups().size();
+		int actual = teacherDao.getAllTeachers().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
-	void testGetGroupById() {
-		Group expected = groupDao.getAllGroups().get(1);
-		Group actual = groupDao.getGroupById(groupDao.getAllGroups().get(1).getId());
+	void testGetTeacherById() {
+		Teacher expected = teacherDao.getAllTeachers().get(1);
+		Teacher actual = teacherDao.getTeacherById(teacherDao.getAllTeachers().get(1).getTeacherId());
 		assertEquals(expected, actual);
 	}
 

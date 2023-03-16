@@ -7,6 +7,7 @@ import lombok.Data;
 @Data
 public class Lesson {
 
+	private int lessonId;
 	private String name;
 	private Teacher teacher;
 	private Group group;

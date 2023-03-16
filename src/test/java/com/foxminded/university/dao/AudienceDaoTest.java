@@ -20,17 +20,17 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-import com.foxminded.university.models.Group;
+import com.foxminded.university.models.Audience;
 
 @SpringBootTest
 @Testcontainers
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @TestPropertySource(locations = "classpath:application.properties")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-class GroupDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
+class AudienceDaoTest extends AbstractTransactionalJUnit4SpringContextTests{
 	
 	@Autowired
-	private GroupDao groupDao;
+	private AudienceDao audienceDao;
 
 	private final static String SCRIPT_DB = "db.sql";
 
@@ -51,58 +51,52 @@ class GroupDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 	public static void stopContainer() {
 		postgreSQLContainer.stop();
 	}
-	
-
-
 
 	@Test
-	void testInsertGroup() {
-		Group group = new Group();
-		group.setId(0);
-		group.setName("DaoTest");
-		groupDao.insert(group);
+	void testInsertAudience() {
+		Audience audience = new Audience();
+		audience.setAudienceNumber(15);
+		audienceDao.insert(audience);
 		int expected = 5;
-		int actual = groupDao.getAllGroups().size();
+		int actual = audienceDao.getAllAudiences().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
-	void testInsertListOfGroup() {
-		Group group = new Group();
-		group.setId(1);
-		group.setName("DaoTest");
-		Group group2 = new Group();
-		group2.setId(2);
-		group2.setName("DaoTest5");
-		List<Group> groups = new LinkedList<>();
-		groups.add(group);
-		groups.add(group2);
-		groupDao.insert(groups);
+	void testInsertListOfAudience() {
+		Audience audience1 = new Audience();
+		Audience audience2 = new Audience();
+		audience1.setAudienceNumber(15);
+		audience2.setAudienceId(16);
+		List<Audience> audiences = new LinkedList<>();
+		audiences.add(audience1);
+		audiences.add(audience2);
+		audienceDao.insert(audiences);
 		int expected = 6;
-		int actual = groupDao.getAllGroups().size();
+		int actual = audienceDao.getAllAudiences().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testDeleteById() {
-		List<Group> groups = groupDao.getAllGroups();
-		groupDao.deleteById(groups.get(1).getId());
+		List<Audience> audiences = audienceDao.getAllAudiences();
+		audienceDao.deleteById(audiences.get(1).getAudienceId());
 		int expected = 3;
-		int actual = groupDao.getAllGroups().size();
+		int actual = audienceDao.getAllAudiences().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
-	void testGetAllGroups() {
+	void testGetAllAudiences() {
 		int expected = 4;
-		int actual = groupDao.getAllGroups().size();
+		int actual = audienceDao.getAllAudiences().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
-	void testGetGroupById() {
-		Group expected = groupDao.getAllGroups().get(1);
-		Group actual = groupDao.getGroupById(groupDao.getAllGroups().get(1).getId());
+	void testGetAudienceById() {
+		Audience expected = audienceDao.getAllAudiences().get(1);
+		Audience actual = audienceDao.getAudienceById(audienceDao.getAllAudiences().get(1).getAudienceId());
 		assertEquals(expected, actual);
 	}
 

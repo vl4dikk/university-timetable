@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class Audience {
 
+	private int audienceId;
 	private int audienceNumber;
 
 }

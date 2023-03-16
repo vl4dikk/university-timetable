@@ -2,6 +2,7 @@ package com.foxminded.university.dao;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,17 +21,20 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import com.foxminded.university.models.Audience;
 import com.foxminded.university.models.Group;
+import com.foxminded.university.models.Lesson;
+import com.foxminded.university.models.Teacher;
 
 @SpringBootTest
 @Testcontainers
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @TestPropertySource(locations = "classpath:application.properties")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-class GroupDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
-	
+class LessonDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
+
 	@Autowired
-	private GroupDao groupDao;
+	private LessonDao lessonDao;
 
 	private final static String SCRIPT_DB = "db.sql";
 
@@ -52,57 +56,76 @@ class GroupDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 		postgreSQLContainer.stop();
 	}
 	
-
-
-
 	@Test
-	void testInsertGroup() {
+	void testInsertLesson() {
+		Lesson lesson = new Lesson();
 		Group group = new Group();
-		group.setId(0);
-		group.setName("DaoTest");
-		groupDao.insert(group);
+		Teacher teacher = new Teacher();
+		Audience audience = new Audience();
+		LocalDateTime time = LocalDateTime.now();
+		group.setId(4);
+		teacher.setTeacherId(4);
+		audience.setAudienceId(4);
+		lesson.setGroup(group);
+		lesson.setAudience(audience);
+		lesson.setTeacher(teacher);
+		lesson.setTime(time);
+		lesson.setName("testLesson123");
 		int expected = 5;
-		int actual = groupDao.getAllGroups().size();
+		lessonDao.insert(lesson);
+		int actual = lessonDao.getAllLessons().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
-	void testInsertListOfGroup() {
+	void testInsertListOfLesson() {
+		Lesson lesson1 = new Lesson();
+		Lesson lesson2 = new Lesson();
 		Group group = new Group();
-		group.setId(1);
-		group.setName("DaoTest");
-		Group group2 = new Group();
-		group2.setId(2);
-		group2.setName("DaoTest5");
-		List<Group> groups = new LinkedList<>();
-		groups.add(group);
-		groups.add(group2);
-		groupDao.insert(groups);
+		Teacher teacher = new Teacher();
+		Audience audience = new Audience();
+		LocalDateTime time = LocalDateTime.now();
+		group.setId(4);
+		teacher.setTeacherId(4);
+		audience.setAudienceId(4);
+		lesson1.setGroup(group);
+		lesson1.setAudience(audience);
+		lesson1.setTeacher(teacher);
+		lesson1.setTime(time);
+		lesson1.setName("testLesson123");
+		lesson2.setGroup(group);
+		lesson2.setAudience(audience);
+		lesson2.setTeacher(teacher);
+		lesson2.setTime(time);
+		lesson2.setName("321");
 		int expected = 6;
-		int actual = groupDao.getAllGroups().size();
+		List<Lesson> lessons = new LinkedList<>();
+		lessons.add(lesson2);
+		lessons.add(lesson1);
+		lessonDao.insert(lessons);
+		int actual = lessonDao.getAllLessons().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testDeleteById() {
-		List<Group> groups = groupDao.getAllGroups();
-		groupDao.deleteById(groups.get(1).getId());
+		lessonDao.deleteById(lessonDao.getAllLessons().get(1).getLessonId());
 		int expected = 3;
-		int actual = groupDao.getAllGroups().size();
+		int actual = lessonDao.getAllLessons().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
-	void testGetAllGroups() {
+	void testGetAllLessons() {
 		int expected = 4;
-		int actual = groupDao.getAllGroups().size();
+		int actual = lessonDao.getAllLessons().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
-	void testGetGroupById() {
-		Group expected = groupDao.getAllGroups().get(1);
-		Group actual = groupDao.getGroupById(groupDao.getAllGroups().get(1).getId());
+	void testGetById() {
+		Lesson expected = lessonDao.getAllLessons().get(3);
+		Lesson actual = lessonDao.getById(lessonDao.getAllLessons().get(3).getLessonId());
 		assertEquals(expected, actual);
 	}
 
