@@ -28,7 +28,7 @@ import com.foxminded.university.models.Group;
 @TestPropertySource(locations = "classpath:application.properties")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class GroupDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
-	
+
 	@Autowired
 	private GroupDao groupDao;
 
@@ -51,9 +51,6 @@ class GroupDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 	public static void stopContainer() {
 		postgreSQLContainer.stop();
 	}
-	
-
-
 
 	@Test
 	void testInsertGroup() {

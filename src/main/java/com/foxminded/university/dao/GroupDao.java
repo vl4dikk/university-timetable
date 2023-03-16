@@ -38,7 +38,7 @@ public class GroupDao {
 	public void deleteById(int groupId) {
 		jdbcTemplate.update(DELETE_BY_ID_QUERY, groupId);
 	}
-	
+
 	public void deleteAll() {
 		jdbcTemplate.update(DELETE_ALL);
 	}

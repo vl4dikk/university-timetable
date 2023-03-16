@@ -28,7 +28,7 @@ import com.foxminded.university.models.Teacher;
 @TestPropertySource(locations = "classpath:application.properties")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class TeacherDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
-	
+
 	@Autowired
 	private TeacherDao teacherDao;
 

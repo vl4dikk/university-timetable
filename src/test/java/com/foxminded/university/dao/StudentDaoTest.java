@@ -52,7 +52,7 @@ class StudentDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 	public static void stopContainer() {
 		postgreSQLContainer.stop();
 	}
-	
+
 	@Test
 	void testInsertStudent() {
 		Student student = new Student();

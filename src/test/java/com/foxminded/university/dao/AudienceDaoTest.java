@@ -27,8 +27,8 @@ import com.foxminded.university.models.Audience;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @TestPropertySource(locations = "classpath:application.properties")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-class AudienceDaoTest extends AbstractTransactionalJUnit4SpringContextTests{
-	
+class AudienceDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
+
 	@Autowired
 	private AudienceDao audienceDao;
 

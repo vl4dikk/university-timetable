@@ -55,7 +55,7 @@ class LessonDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 	public static void stopContainer() {
 		postgreSQLContainer.stop();
 	}
-	
+
 	@Test
 	void testInsertLesson() {
 		Lesson lesson = new Lesson();

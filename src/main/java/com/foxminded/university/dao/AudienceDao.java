@@ -11,11 +11,11 @@ import com.foxminded.university.models.Audience;
 
 @Repository
 public class AudienceDao {
-	
+
 	private final JdbcTemplate jdbcTemplate;
 
 	private BeanPropertyRowMapper<Audience> rowMapper = new BeanPropertyRowMapper<>(Audience.class);
-	
+
 	@Autowired
 	public AudienceDao(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;

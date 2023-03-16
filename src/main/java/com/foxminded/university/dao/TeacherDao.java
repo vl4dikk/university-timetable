@@ -11,17 +11,16 @@ import com.foxminded.university.models.Teacher;
 
 @Repository
 public class TeacherDao {
-	
+
 	private final JdbcTemplate jdbcTemplate;
-	
+
 	private BeanPropertyRowMapper<Teacher> rowMapper = new BeanPropertyRowMapper<>(Teacher.class);
 
-	
 	@Autowired
 	public TeacherDao(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
-	
+
 	public void insert(Teacher teacher) {
 		String sql = "INSERT INTO teachers (firstname, lastname) VALUES (?, ?)";
 		jdbcTemplate.update(sql, teacher.getFirstName(), teacher.getLastName());

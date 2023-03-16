@@ -102,11 +102,4 @@ public class LessonDao {
 		return jdbcTemplate.queryForObject(sql, rowMapper, lessonId);
 	}
 
-//	public void insertNewLesson(String name, int teacherId, int groupId, int audienceId, LocalDateTime time) {
-//		String sql = "INSERT INTO lessons (name, teacherId, groupId, audienceId, lTime) "
-//				+ "     VALUES (?, ?, ?, ?, ?)";
-//		Timestamp timeStamp = Timestamp.valueOf(time);
-//		jdbcTemplate.update(sql, name, teacherId, groupId, audienceId, timeStamp);
-//	}
-
 }
