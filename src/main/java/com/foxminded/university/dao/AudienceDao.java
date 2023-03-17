@@ -26,25 +26,18 @@ public class AudienceDao {
 		jdbcTemplate.update(sql, audience.getAudienceNumber());
 	}
 
-	public void insert(List<Audience> audiences) {
-		String sql = "INSERT INTO audiences (audienceNumber) VALUES (?)";
-		for (Audience audience : audiences) {
-			jdbcTemplate.update(sql, audience.getAudienceNumber());
-		}
-	}
-
 	public void deleteById(int audienceId) {
 		String sql = "DELETE FROM audiences WHERE audienceId = ?";
 		jdbcTemplate.update(sql, audienceId);
 	}
 
 	public List<Audience> getAllAudiences() {
-		String sql = "SELECT * FROM audiences";
+		String sql = "SELECT audienceId, audienceNumber FROM audiences";
 		return jdbcTemplate.query(sql, rowMapper);
 	}
 
 	public Audience getAudienceById(int audienceId) {
-		String sql = "SELECT * FROM audiences WHERE audienceId = ?";
+		String sql = "SELECT audienceId, audienceNumber FROM audiences WHERE audienceId = ?";
 		Audience audience = jdbcTemplate.queryForObject(sql, rowMapper, audienceId);
 		return audience;
 	}

@@ -13,10 +13,6 @@ import com.foxminded.university.models.Student;
 @Repository
 public class StudentDao {
 
-	private static final String DELETE_BY_ID_QUERY = "DELETE FROM students WHERE studentId = ?";
-	private static final String INSERT_STUDENTS_QUERY = "INSERT INTO students (firstName, lastName) "
-			+ "     VALUES (?, ?)";
-
 	private final JdbcTemplate jdbcTemplate;
 
 	@Autowired
@@ -25,17 +21,13 @@ public class StudentDao {
 	}
 
 	public void insert(Student student) {
-		jdbcTemplate.update(INSERT_STUDENTS_QUERY, student.getFirstName(), student.getLastName());
-	}
-
-	public void insert(List<Student> students) {
-		for (Student student : students) {
-			jdbcTemplate.update(INSERT_STUDENTS_QUERY, student.getFirstName(), student.getLastName());
-		}
+		String sql = "INSERT INTO students (firstName, lastName) VALUES (?, ?)";
+		jdbcTemplate.update(sql, student.getFirstName(), student.getLastName());
 	}
 
 	public void deleteById(int studentId) {
-		jdbcTemplate.update(DELETE_BY_ID_QUERY, studentId);
+		String sql = "DELETE FROM students WHERE studentId = ?";
+		jdbcTemplate.update(sql, studentId);
 	}
 
 	public List<Student> getAllStudents() {

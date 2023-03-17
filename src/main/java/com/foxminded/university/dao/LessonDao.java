@@ -31,16 +31,6 @@ public class LessonDao {
 				lesson.getAudience().getAudienceId(), timeStamp);
 	}
 
-	public void insert(List<Lesson> lessons) {
-		String sql = "INSERT INTO lessons (name, teacher_id, group_id, audience_id, lTime) "
-				+ "     VALUES (?, ?, ?, ?, ?)";
-		for (Lesson lesson : lessons) {
-			Timestamp timeStamp = Timestamp.valueOf(lesson.getTime());
-			jdbcTemplate.update(sql, lesson.getName(), lesson.getTeacher().getTeacherId(), lesson.getGroup().getId(),
-					lesson.getAudience().getAudienceId(), timeStamp);
-		}
-	}
-
 	public void deleteById(int lessonId) {
 		String sql = "DELETE FROM lessons WHERE lessonId = ?";
 		jdbcTemplate.update(sql, lessonId);

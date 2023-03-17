@@ -2,7 +2,6 @@ package com.foxminded.university.dao;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import org.junit.ClassRule;
@@ -54,29 +53,11 @@ class GroupDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 
 	@Test
 	void testInsertGroup() {
-		Group group = new Group();
-		group.setId(0);
-		group.setName("DaoTest");
-		groupDao.insert(group);
-		int expected = 5;
-		int actual = groupDao.getAllGroups().size();
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	void testInsertListOfGroup() {
-		Group group = new Group();
-		group.setId(1);
-		group.setName("DaoTest");
-		Group group2 = new Group();
-		group2.setId(2);
-		group2.setName("DaoTest5");
-		List<Group> groups = new LinkedList<>();
-		groups.add(group);
-		groups.add(group2);
-		groupDao.insert(groups);
-		int expected = 6;
-		int actual = groupDao.getAllGroups().size();
+		Group expected = new Group();
+		expected.setName("DaoTest321");
+		expected.setId(groupDao.getAllGroups().size() + 1);
+		groupDao.insert(expected);
+		Group actual = groupDao.getGroupById(groupDao.getAllGroups().size());
 		assertEquals(expected, actual);
 	}
 

@@ -3,8 +3,7 @@ package com.foxminded.university.dao;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDateTime;
-import java.util.LinkedList;
-import java.util.List;
+import java.time.format.DateTimeFormatter;
 
 import org.junit.ClassRule;
 import org.junit.jupiter.api.AfterAll;
@@ -58,52 +57,28 @@ class LessonDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 
 	@Test
 	void testInsertLesson() {
-		Lesson lesson = new Lesson();
+		Lesson expected = new Lesson();
 		Group group = new Group();
 		Teacher teacher = new Teacher();
 		Audience audience = new Audience();
-		LocalDateTime time = LocalDateTime.now();
+		String str = "2016-03-04 11:30"; 
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"); 
+		LocalDateTime time = LocalDateTime.parse(str, formatter);
 		group.setId(4);
+		group.setName("DaoTest4");
 		teacher.setTeacherId(4);
+		teacher.setFirstName("Vlad4");
+		teacher.setLastName("Valchuk4");
 		audience.setAudienceId(4);
-		lesson.setGroup(group);
-		lesson.setAudience(audience);
-		lesson.setTeacher(teacher);
-		lesson.setTime(time);
-		lesson.setName("testLesson123");
-		int expected = 5;
-		lessonDao.insert(lesson);
-		int actual = lessonDao.getAllLessons().size();
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	void testInsertListOfLesson() {
-		Lesson lesson1 = new Lesson();
-		Lesson lesson2 = new Lesson();
-		Group group = new Group();
-		Teacher teacher = new Teacher();
-		Audience audience = new Audience();
-		LocalDateTime time = LocalDateTime.now();
-		group.setId(4);
-		teacher.setTeacherId(4);
-		audience.setAudienceId(4);
-		lesson1.setGroup(group);
-		lesson1.setAudience(audience);
-		lesson1.setTeacher(teacher);
-		lesson1.setTime(time);
-		lesson1.setName("testLesson123");
-		lesson2.setGroup(group);
-		lesson2.setAudience(audience);
-		lesson2.setTeacher(teacher);
-		lesson2.setTime(time);
-		lesson2.setName("321");
-		int expected = 6;
-		List<Lesson> lessons = new LinkedList<>();
-		lessons.add(lesson2);
-		lessons.add(lesson1);
-		lessonDao.insert(lessons);
-		int actual = lessonDao.getAllLessons().size();
+		audience.setAudienceNumber(34);
+		expected.setGroup(group);
+		expected.setAudience(audience);
+		expected.setTeacher(teacher);
+		expected.setTime(time);
+		expected.setName("testLesson123");
+		expected.setLessonId(lessonDao.getAllLessons().size() + 1);
+		lessonDao.insert(expected);
+		Lesson actual = lessonDao.getById(lessonDao.getAllLessons().size());
 		assertEquals(expected, actual);
 	}
 

@@ -2,7 +2,6 @@ package com.foxminded.university.services;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -21,7 +20,7 @@ import com.foxminded.university.models.Lesson;
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
 class LessonServiceTest {
-	
+
 	@Mock
 	LessonDao dao;
 
@@ -32,12 +31,6 @@ class LessonServiceTest {
 	void testInsertStringIntIntIntLocalDateTime() {
 		service.insert("123", 1, 2, 3, LocalDateTime.now());
 		verify(dao, times(1)).insert(any(Lesson.class));
-	}
-
-	@Test
-	void testInsertListOfLesson() {
-		service.insert(anyList());
-		verify(dao, times(1)).insert(anyList());
 	}
 
 	@Test

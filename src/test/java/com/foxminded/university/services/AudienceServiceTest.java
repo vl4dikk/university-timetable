@@ -2,9 +2,11 @@ package com.foxminded.university.services;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+
+import java.util.LinkedList;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -34,8 +36,11 @@ class AudienceServiceTest {
 
 	@Test
 	void testInsertListOfInteger() {
-		service.insert(anyList());
-		verify(dao, times(1)).insert(anyList());
+		List<Integer> test = new LinkedList<>();
+		test.add(3);
+		test.add(5);
+		service.insert(test);
+		verify(dao, times(2)).insert(any(Audience.class));
 	}
 
 	@Test

@@ -2,9 +2,6 @@ package com.foxminded.university.dao;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import org.junit.ClassRule;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
@@ -54,29 +51,12 @@ class TeacherDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 
 	@Test
 	void testInsertTeacher() {
-		Teacher teacher = new Teacher();
-		teacher.setFirstName("123");
-		teacher.setLastName("321");
-		int expected = teacherDao.getAllTeachers().size() + 1;
-		teacherDao.insert(teacher);
-		int actual = teacherDao.getAllTeachers().size();
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	void testInsertListOfTeacher() {
-		Teacher teacher1 = new Teacher();
-		Teacher teacher2 = new Teacher();
-		teacher1.setFirstName("123");
-		teacher1.setLastName("321");
-		teacher2.setFirstName("456");
-		teacher2.setLastName("654");
-		List<Teacher> teachers = new LinkedList<>();
-		teachers.add(teacher1);
-		teachers.add(teacher2);
-		int expected = teacherDao.getAllTeachers().size() + 2;
-		teacherDao.insert(teachers);
-		int actual = teacherDao.getAllTeachers().size();
+		Teacher expected = new Teacher();
+		expected.setTeacherId(teacherDao.getAllTeachers().size() + 1);
+		expected.setFirstName("123");
+		expected.setLastName("321");
+		teacherDao.insert(expected);	
+		Teacher actual = teacherDao.getTeacherById(teacherDao.getAllTeachers().size());
 		assertEquals(expected, actual);
 	}
 

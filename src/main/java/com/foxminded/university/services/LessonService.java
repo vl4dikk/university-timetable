@@ -38,10 +38,6 @@ public class LessonService {
 		dao.insert(lesson);
 	}
 
-	public void insert(List<Lesson> lessons) {
-		dao.insert(lessons);
-	}
-
 	public void deleteById(int lessonId) {
 		dao.deleteById(lessonId);
 	}

@@ -12,10 +12,6 @@ import com.foxminded.university.models.Group;
 @Repository
 public class GroupDao {
 
-	private static final String DELETE_BY_ID_QUERY = "DELETE FROM groups WHERE id = ?";
-	private static final String INSERT_GROUPS_QUERY = "INSERT INTO groups (name) VALUES (?)";
-	private static final String DELETE_ALL = "DELETE FROM groups";
-
 	private final JdbcTemplate jdbcTemplate;
 
 	private BeanPropertyRowMapper<Group> rowMapper = new BeanPropertyRowMapper<>(Group.class);
@@ -26,30 +22,27 @@ public class GroupDao {
 	}
 
 	public void insert(Group group) {
-		jdbcTemplate.update(INSERT_GROUPS_QUERY, group.getName());
-	}
-
-	public void insert(List<Group> groups) {
-		for (Group group : groups) {
-			jdbcTemplate.update(INSERT_GROUPS_QUERY, group.getName());
-		}
+		String sql = "INSERT INTO groups (name) VALUES (?)";
+		jdbcTemplate.update(sql, group.getName());
 	}
 
 	public void deleteById(int groupId) {
-		jdbcTemplate.update(DELETE_BY_ID_QUERY, groupId);
+		String sql = "DELETE FROM groups WHERE id = ?";
+		jdbcTemplate.update(sql, groupId);
 	}
 
 	public void deleteAll() {
-		jdbcTemplate.update(DELETE_ALL);
+		String sql = "DELETE FROM groups";
+		jdbcTemplate.update(sql);
 	}
 
 	public List<Group> getAllGroups() {
-		String sql = "SELECT * FROM groups";
+		String sql = "SELECT id, name FROM groups";
 		return jdbcTemplate.query(sql, rowMapper);
 	}
 
 	public Group getGroupById(int groupId) {
-		String sql = "SELECT * FROM groups WHERE id = ?";
+		String sql = "SELECT id, name FROM groups WHERE id = ?";
 		Group group = jdbcTemplate.queryForObject(sql, rowMapper, groupId);
 		return group;
 	}

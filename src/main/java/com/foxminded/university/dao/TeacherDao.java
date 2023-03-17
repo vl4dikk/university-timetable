@@ -26,25 +26,18 @@ public class TeacherDao {
 		jdbcTemplate.update(sql, teacher.getFirstName(), teacher.getLastName());
 	}
 
-	public void insert(List<Teacher> teachers) {
-		String sql = "INSERT INTO teachers (firstname, lastname) VALUES (?, ?)";
-		for (Teacher teacher : teachers) {
-			jdbcTemplate.update(sql, teacher.getFirstName(), teacher.getLastName());
-		}
-	}
-
 	public void deleteById(int teacherId) {
 		String sql = "DELETE FROM teachers WHERE teacherId = ?";
 		jdbcTemplate.update(sql, teacherId);
 	}
 
 	public List<Teacher> getAllTeachers() {
-		String sql = "SELECT * FROM teachers";
+		String sql = "SELECT teacherId, firstName, lastName FROM teachers";
 		return jdbcTemplate.query(sql, rowMapper);
 	}
 
 	public Teacher getTeacherById(int teacherId) {
-		String sql = "SELECT * FROM teachers WHERE teacherId = ?";
+		String sql = "SELECT teacherId, firstName, lastName FROM teachers WHERE teacherId = ?";
 		Teacher teacher = jdbcTemplate.queryForObject(sql, rowMapper, teacherId);
 		return teacher;
 	}

@@ -1,6 +1,5 @@
 package com.foxminded.university.services;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +10,9 @@ import com.foxminded.university.models.Audience;
 
 @Service
 public class AudienceService {
-	
+
 	private AudienceDao dao;
-	
+
 	@Autowired
 	public AudienceService(AudienceDao dao) {
 		this.dao = dao;
@@ -26,13 +25,11 @@ public class AudienceService {
 	}
 
 	public void insert(List<Integer> audienceNumbers) {
-		List<Audience> audiences = new LinkedList<>();
 		for (int audienceNumber : audienceNumbers) {
 			Audience audience = new Audience();
 			audience.setAudienceNumber(audienceNumber);
-			audiences.add(audience);
+			dao.insert(audience);
 		}
-		dao.insert(audiences);
 	}
 
 	public void deleteById(int audienceId) {

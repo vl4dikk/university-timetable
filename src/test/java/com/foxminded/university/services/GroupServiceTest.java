@@ -7,6 +7,8 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
+import java.util.LinkedList;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -36,8 +38,11 @@ class GroupServiceTest {
 
 	@Test
 	void testInsertListOfString() {
-		service.insert(anyList());
-		verify(dao, times(1)).insert(anyList());
+		List<String> test = new LinkedList<>();
+		test.add("123");
+		test.add("321");
+		service.insert(test);
+		verify(dao, times(2)).insert(any(Group.class));
 	}
 
 	@Test

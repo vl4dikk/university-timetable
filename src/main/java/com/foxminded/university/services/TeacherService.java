@@ -1,7 +1,6 @@
 package com.foxminded.university.services;
 
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map.Entry;
 
@@ -29,16 +28,14 @@ public class TeacherService {
 	}
 
 	public void insert(HashMap<String, String> teachersNames) {
-		List<Teacher> teachers = new LinkedList<>();
 		for (Entry<String, String> entry : teachersNames.entrySet()) {
 			String firstName = entry.getKey();
 			String lastName = entry.getValue();
 			Teacher teacher = new Teacher();
 			teacher.setFirstName(firstName);
 			teacher.setLastName(lastName);
-			teachers.add(teacher);
+			dao.insert(teacher);
 		}
-		dao.insert(teachers);
 	}
 
 	public void deleteById(int teacherId) {

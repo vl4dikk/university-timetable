@@ -1,6 +1,5 @@
 package com.foxminded.university.services;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +25,11 @@ public class GroupService {
 	}
 
 	public void insert(List<String> names) {
-		List<Group> groups = new LinkedList<>();
 		for (String name : names) {
 			Group group = new Group();
 			group.setName(name);
-			groups.add(group);
+			dao.insert(group);
 		}
-		dao.insert(groups);
 	}
 
 	public void deleteById(int groupId) {

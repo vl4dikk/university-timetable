@@ -2,7 +2,6 @@ package com.foxminded.university.dao;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import org.junit.ClassRule;
@@ -54,26 +53,11 @@ class AudienceDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 
 	@Test
 	void testInsertAudience() {
-		Audience audience = new Audience();
-		audience.setAudienceNumber(15);
-		audienceDao.insert(audience);
-		int expected = 5;
-		int actual = audienceDao.getAllAudiences().size();
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	void testInsertListOfAudience() {
-		Audience audience1 = new Audience();
-		Audience audience2 = new Audience();
-		audience1.setAudienceNumber(15);
-		audience2.setAudienceId(16);
-		List<Audience> audiences = new LinkedList<>();
-		audiences.add(audience1);
-		audiences.add(audience2);
-		audienceDao.insert(audiences);
-		int expected = 6;
-		int actual = audienceDao.getAllAudiences().size();
+		Audience expected = new Audience();
+		expected.setAudienceId(audienceDao.getAllAudiences().size() + 1);
+		expected.setAudienceNumber(15);
+		audienceDao.insert(expected);
+		Audience actual = audienceDao.getAudienceById(audienceDao.getAllAudiences().size());
 		assertEquals(expected, actual);
 	}
 

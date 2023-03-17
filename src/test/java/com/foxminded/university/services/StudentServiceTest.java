@@ -2,7 +2,6 @@ package com.foxminded.university.services;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -37,8 +36,10 @@ class StudentServiceTest {
 	@Test
 	void testInsertHashMapOfStringString() {
 		HashMap<String, String> mapMock = new HashMap<>();
+		mapMock.put("123", "321");
+		mapMock.put("321", "123");
 		service.insert(mapMock);
-		verify(dao, times(1)).insert(anyList());
+		verify(dao, times(2)).insert(any(Student.class));
 	}
 
 	@Test
