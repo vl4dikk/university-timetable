@@ -12,12 +12,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import com.foxminded.university.dao.StudentDao;
 import com.foxminded.university.models.Student;
 
-@SpringBootTest
 @ExtendWith(MockitoExtension.class)
 class StudentServiceTest {
 
