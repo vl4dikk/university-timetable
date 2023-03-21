@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,8 @@ import com.foxminded.university.models.Student;
 
 @Service
 public class StudentService {
+	
+	private static final Logger logger = LoggerFactory.getLogger(StudentService.class);
 
 	private StudentDao dao;
 
