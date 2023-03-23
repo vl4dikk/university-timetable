@@ -29,42 +29,42 @@ public class TeacherDao {
 	}
 
 	public void insert(Teacher teacher) {
-		logger.debug("Start inserting teacher");
+		logger.trace("Start inserting teacher");
 		if (teacher == null) {
 			String error = "Cannot insert teacher, because its null";
-			logger.warn(error);
+			logger.error(error);
 			throw new DAOException(error);
 		}
 		String sql = "INSERT INTO teachers (firstname, lastname) VALUES (?, ?)";
 		jdbcTemplate.update(sql, teacher.getFirstName(), teacher.getLastName());
-		logger.debug("Teacher inserted");
+		logger.trace("Teacher inserted");
 	}
 
 	public void deleteById(int teacherId) {
-		logger.debug("Deleting teacher with id {}", teacherId);
+		logger.trace("Deleting teacher with id {}", teacherId);
 		String sql = "DELETE FROM teachers WHERE teacherId = ?";
 		jdbcTemplate.update(sql, teacherId);
 	}
 
 	public List<Teacher> getAllTeachers() {
-		logger.debug("Getting all teachers");
+		logger.trace("Getting all teachers");
 		String sql = "SELECT teacherId, firstName, lastName FROM teachers";
 		return jdbcTemplate.query(sql, rowMapper);
 	}
 
 	public Teacher getTeacherById(int teacherId) {
-		logger.debug("Getting teacher with id {}", teacherId);
+		logger.trace("Getting teacher with id {}", teacherId);
 		String sql = "SELECT teacherId, firstName, lastName FROM teachers WHERE teacherId = ?";
 		Teacher teacher;
 		try {
 			teacher = jdbcTemplate.queryForObject(sql, rowMapper, teacherId);
 		} catch (EmptyResultDataAccessException exception) {
 			String error = String.format("Cannot find teacher with id '%s'", teacherId);
-			logger.warn(error);
+			logger.error(error);
 			throw new DAOException(error, exception);
 		} catch (DataAccessException exception) {
 			String error = String.format("Unable to get teacher with ID '%s'", teacherId);
-			logger.warn(error);
+			logger.error(error);
 			throw new DAOException(error, exception);
 		}
 		return teacher;

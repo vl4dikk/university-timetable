@@ -27,6 +27,7 @@ public class LessonService {
 	}
 
 	public void insert(String name, int teacherId, int groupId, int audienceId, LocalDateTime time) {
+		logger.trace("Started LessonService to insert lesson");
 		Lesson lesson = new Lesson();
 		lesson.setName(name);
 		Teacher teacher = new Teacher();
@@ -40,17 +41,21 @@ public class LessonService {
 		lesson.setAudience(audience);
 		lesson.setTime(time);
 		dao.insert(lesson);
+		logger.trace("Lesson inserted");
 	}
 
 	public void deleteById(int lessonId) {
+		logger.trace("Started LessonService to delete lesson by id {}", lessonId);
 		dao.deleteById(lessonId);
 	}
 
 	public List<Lesson> getAllLessons() {
+		logger.trace("Started LessonService to get all lessons");
 		return dao.getAllLessons();
 	}
 
 	public Lesson getById(int lessonId) {
+		logger.trace("Started LessonService to get lesson by id {}", lessonId);
 		return dao.getById(lessonId);
 	}
 }

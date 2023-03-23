@@ -29,42 +29,43 @@ public class AudienceDao {
 	}
 
 	public void insert(Audience audience) {
-		logger.debug("Start inserting audience");
 		if (audience == null) {
 			String error = "Cannot insert audience, because its null";
-			logger.warn(error);
+			logger.error(error);
 			throw new DAOException(error);
 		}
+		logger.trace("Start inserting audience with number {}", audience.getAudienceNumber());
 		String sql = "INSERT INTO audiences (audienceNumber) VALUES (?)";
 		jdbcTemplate.update(sql, audience.getAudienceNumber());
-		logger.debug("Audience inserted");
+		logger.trace("Audience with number {} inserted", audience.getAudienceNumber());
 	}
 
 	public void deleteById(int audienceId) {
-		logger.debug("Deleting audience with id {}", audienceId);
+		logger.trace("Deleting audience with id {}", audienceId);
 		String sql = "DELETE FROM audiences WHERE audienceId = ?";
 		jdbcTemplate.update(sql, audienceId);
+		logger.trace("Audience with id {} was deleted", audienceId);
 	}
 
 	public List<Audience> getAllAudiences() {
-		logger.debug("Getting all audiences");
+		logger.trace("Getting all audiences");
 		String sql = "SELECT audienceId, audienceNumber FROM audiences";
 		return jdbcTemplate.query(sql, rowMapper);
 	}
 
 	public Audience getAudienceById(int audienceId) {
-		logger.debug("Getting audience with id {}", audienceId);
+		logger.trace("Getting audience with id {}", audienceId);
 		String sql = "SELECT audienceId, audienceNumber FROM audiences WHERE audienceId = ?";
 		Audience audience;
 		try {
 			audience = jdbcTemplate.queryForObject(sql, rowMapper, audienceId);
 		} catch (EmptyResultDataAccessException exception) {
 			String error = String.format("Cannot find audience with id '%s'", audienceId);
-			logger.warn(error);
+			logger.error(error);
 			throw new DAOException(error, exception);
 		} catch (DataAccessException exception) {
 			String error = String.format("Unable to get audience with ID '%s'", audienceId);
-			logger.warn(error);
+			logger.error(error);
 			throw new DAOException(error, exception);
 		}
 		return audience;

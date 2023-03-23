@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.foxminded.university.dao.AudienceDao;
-import com.foxminded.university.exceptions.DAOException;
 import com.foxminded.university.models.Audience;
 
 @Service
@@ -24,51 +23,34 @@ public class AudienceService {
 	}
 
 	public void insert(int audienceNumber) {
-		logger.debug("Started AudienceService to insert audience");
+		logger.trace("Started AudienceService to insert audience");
 		Audience audience = new Audience();
 		audience.setAudienceNumber(audienceNumber);
-		try {
-			dao.insert(audience);
-			logger.debug("Audience inserted");
-		} catch (DAOException e) {
-			logger.warn(e.getMessage());
-			e.printStackTrace();
-		}
+		dao.insert(audience);
+		logger.trace("Audience inserted");
 	}
 
 	public void insert(List<Integer> audienceNumbers) {
-		logger.debug("Started AudienceService to insert list of audiences");
+		logger.trace("Started AudienceService to insert list of audiences");
 		for (int audienceNumber : audienceNumbers) {
 			Audience audience = new Audience();
 			audience.setAudienceNumber(audienceNumber);
-			try {
-				dao.insert(audience);
-			} catch (DAOException e) {
-				logger.warn(e.getMessage());
-				e.printStackTrace();
-			}
+			dao.insert(audience);
 		}
 	}
 
 	public void deleteById(int audienceId) {
-		logger.debug("Started AudienceService to delete audience by id {}", audienceId);
+		logger.trace("Started AudienceService to delete audience by id {}", audienceId);
 		dao.deleteById(audienceId);
 	}
 
 	public List<Audience> getAllAudiences() {
-		logger.debug("Started AudienceService to get all audiences");
+		logger.trace("Started AudienceService to get all audiences");
 		return dao.getAllAudiences();
 	}
 
 	public Audience getAudienceById(int audienceId) {
-		logger.debug("Started AudienceService to get audience by id {}", audienceId);
-		Audience audience = new Audience();
-		try {
-			audience = dao.getAudienceById(audienceId);
-		} catch (DAOException e) {
-			logger.warn(e.getMessage());
-			e.printStackTrace();
-		}
-		return audience;
+		logger.trace("Started AudienceService to get audience by id {}", audienceId);
+		return dao.getAudienceById(audienceId);
 	}
 }

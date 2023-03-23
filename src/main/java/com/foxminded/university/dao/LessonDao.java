@@ -32,10 +32,10 @@ public class LessonDao {
 	}
 
 	public void insert(Lesson lesson) {
-		logger.debug("Start inserting lesson");
+		logger.trace("Start inserting lesson");
 		if (lesson == null) {
 			String error = "Cannot insert lesson, because its null";
-			logger.warn(error);
+			logger.error(error);
 			throw new DAOException(error);
 		}
 		String sql = "INSERT INTO lessons (name, teacher_id, group_id, audience_id, lTime) VALUES (?, ?, ?, ?, ?)";
@@ -45,13 +45,13 @@ public class LessonDao {
 	}
 
 	public void deleteById(int lessonId) {
-		logger.debug("Deleting lesson with id {}", lessonId);
+		logger.trace("Deleting lesson with id {}", lessonId);
 		String sql = "DELETE FROM lessons WHERE lessonId = ?";
 		jdbcTemplate.update(sql, lessonId);
 	}
 
 	public List<Lesson> getAllLessons() {
-		logger.debug("Getting all lessons");
+		logger.trace("Getting all lessons");
 		String sql = "SELECT l.lessonId, l.name, l.teacher_id, t.firstName AS teacher_firstName, t.lastName AS teacher_lastName, g.id AS group_id, g.name AS group_name, a.audienceId AS audience_id, a.audienceNumber AS audience_number, l.lTime "
 				+ "FROM lessons l " + "JOIN teachers t ON l.teacher_id = t.teacherId "
 				+ "JOIN groups g ON l.group_id = g.id " + "JOIN audiences a ON l.audience_id = a.audienceId";
@@ -79,7 +79,7 @@ public class LessonDao {
 	}
 
 	public Lesson getById(int lessonId) {
-		logger.debug("Getting lesson with id {}", lessonId);
+		logger.trace("Getting lesson with id {}", lessonId);
 		Lesson result;
 		String sql = "SELECT l.lessonId, l.name, l.teacher_id, t.firstName AS teacher_firstName, t.lastName AS teacher_lastName, g.id AS group_id, g.name AS group_name, a.audienceId AS audience_id, a.audienceNumber AS audience_number, l.lTime "
 				+ "FROM lessons l " + "JOIN teachers t ON l.teacher_id = t.teacherId "
@@ -110,11 +110,11 @@ public class LessonDao {
 			result = jdbcTemplate.queryForObject(sql, rowMapper, lessonId);
 		} catch (EmptyResultDataAccessException exception) {
 			String error = String.format("Cannot find lesson with id '%s'", lessonId);
-			logger.warn(error);
+			logger.error(error);
 			throw new DAOException(error, exception);
 		} catch (DataAccessException exception) {
 			String error = String.format("Unable to get lesson with ID '%s'", lessonId);
-			logger.warn(error);
+			logger.error(error);
 			throw new DAOException(error, exception);
 		}
 		return result;

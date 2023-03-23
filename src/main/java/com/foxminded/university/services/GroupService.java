@@ -13,7 +13,7 @@ import com.foxminded.university.models.Group;
 
 @Service
 public class GroupService {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(GroupService.class);
 
 	private GroupDao dao;
@@ -24,52 +24,35 @@ public class GroupService {
 	}
 
 	public void insert(String name) {
-		logger.debug("Started GroupService to insert group");
+		logger.trace("Started GroupService to insert group");
 		Group group = new Group();
 		group.setName(name);
-		try {
-			dao.insert(group);
-			logger.debug("Group with name {} inserted", name);
-		} catch (DAOException e) {
-			logger.warn(e.getMessage());
-			e.printStackTrace();
-		}
+		dao.insert(group);
+		logger.trace("Group with name {} inserted", name);
 	}
 
 	public void insert(List<String> names) {
-		logger.debug("Started GroupService to insert list of groups");
+		logger.trace("Started GroupService to insert list of groups");
 		for (String name : names) {
 			Group group = new Group();
 			group.setName(name);
-			try {
-				dao.insert(group);
-				logger.debug("Group with name {} inserted", name);
-			} catch (DAOException e) {
-				logger.warn(e.getMessage());
-				e.printStackTrace();
-			}
+			dao.insert(group);
+			logger.trace("Group with name {} inserted", name);
 		}
 	}
 
 	public void deleteById(int groupId) {
-		logger.debug("Started GroupService to delete group by id {}", groupId);
+		logger.trace("Started GroupService to delete group by id {}", groupId);
 		dao.deleteById(groupId);
 	}
 
 	public List<Group> getAllGroups() {
-        logger.debug("Started GroupService to get all groups");
+		logger.trace("Started GroupService to get all groups");
 		return dao.getAllGroups();
 	}
 
 	public Group getGroupById(int groupId) {
-		logger.debug("Started GroupService to get group by id {}", groupId);
-		Group group = new Group();
-		try {
-			group = dao.getGroupById(groupId);
-		} catch (DAOException e) {
-			logger.warn(e.getMessage());
-			e.printStackTrace();
-		}
-		return group;
+		logger.trace("Started GroupService to get group by id {}", groupId);
+		return dao.getGroupById(groupId);
 	}
 }
