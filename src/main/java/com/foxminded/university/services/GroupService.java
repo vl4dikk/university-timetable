@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.foxminded.university.dao.GroupDao;
-import com.foxminded.university.exceptions.DAOException;
 import com.foxminded.university.models.Group;
 
 @Service
@@ -24,35 +23,35 @@ public class GroupService {
 	}
 
 	public void insert(String name) {
-		logger.trace("Started GroupService to insert group");
+		logger.info("Started GroupService to insert group");
 		Group group = new Group();
 		group.setName(name);
 		dao.insert(group);
-		logger.trace("Group with name {} inserted", name);
+		logger.info("Group inserted");
 	}
 
 	public void insert(List<String> names) {
-		logger.trace("Started GroupService to insert list of groups");
+		logger.info("Started GroupService to insert list of groups");
 		for (String name : names) {
 			Group group = new Group();
 			group.setName(name);
 			dao.insert(group);
-			logger.trace("Group with name {} inserted", name);
+			logger.info("Group inserted");
 		}
 	}
 
 	public void deleteById(int groupId) {
-		logger.trace("Started GroupService to delete group by id {}", groupId);
+		logger.info("Started GroupService to delete group by id");
 		dao.deleteById(groupId);
 	}
 
 	public List<Group> getAllGroups() {
-		logger.trace("Started GroupService to get all groups");
+		logger.info("Started GroupService to get all groups");
 		return dao.getAllGroups();
 	}
 
 	public Group getGroupById(int groupId) {
-		logger.trace("Started GroupService to get group by id {}", groupId);
+		logger.info("Started GroupService to get group by id");
 		return dao.getGroupById(groupId);
 	}
 }

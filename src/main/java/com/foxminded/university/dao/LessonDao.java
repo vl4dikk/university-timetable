@@ -32,22 +32,24 @@ public class LessonDao {
 	}
 
 	public void insert(Lesson lesson) {
-		logger.trace("Start inserting lesson");
 		if (lesson == null) {
 			String error = "Cannot insert lesson, because its null";
 			logger.error(error);
 			throw new DAOException(error);
 		}
+		logger.trace("Start inserting lesson with name {}", lesson.getName());
 		String sql = "INSERT INTO lessons (name, teacher_id, group_id, audience_id, lTime) VALUES (?, ?, ?, ?, ?)";
 		Timestamp timeStamp = Timestamp.valueOf(lesson.getTime());
 		jdbcTemplate.update(sql, lesson.getName(), lesson.getTeacher().getTeacherId(), lesson.getGroup().getId(),
 				lesson.getAudience().getAudienceId(), timeStamp);
+		logger.trace("Lesson with name {} inserted", lesson.getName());
 	}
 
 	public void deleteById(int lessonId) {
 		logger.trace("Deleting lesson with id {}", lessonId);
 		String sql = "DELETE FROM lessons WHERE lessonId = ?";
 		jdbcTemplate.update(sql, lessonId);
+		logger.trace("Lesson with id {} deleted", lessonId);
 	}
 
 	public List<Lesson> getAllLessons() {

@@ -25,13 +25,16 @@ public class StudentService {
 	}
 
 	public void insert(String firstName, String lastName) {
+		logger.info("Started StudentService to insert student");
 		Student student = new Student();
 		student.setFirstName(firstName);
 		student.setLastName(lastName);
 		dao.insert(student);
+		logger.info("Student inserted");
 	}
 
 	public void insert(HashMap<String, String> studentsNames) {
+		logger.info("Started StudentService to insert list of students");
 		for (Entry<String, String> entry : studentsNames.entrySet()) {
 			String firstName = entry.getKey();
 			String lastName = entry.getValue();
@@ -39,22 +42,27 @@ public class StudentService {
 			student.setFirstName(firstName);
 			student.setLastName(lastName);
 			dao.insert(student);
+			logger.info("Student inserted");
 		}
 	}
 
 	public void deleteById(int studentId) {
+		logger.info("Started StudentService to delete student by id");
 		dao.deleteById(studentId);
 	}
 
 	public List<Student> getAllStudents() {
+		logger.info("Started StudentService to get all students");
 		return dao.getAllStudents();
 	}
 
 	public Student getStudentById(int studentId) {
+		logger.info("Started StudentService to get student by id");
 		return dao.getById(studentId);
 	}
 
 	public void assignStudentToGroup(int studentId, int groupId) {
+		logger.info("Started StudentService to assign student to group");
 		dao.assignStudentToGroup(studentId, groupId);
 	}
 

@@ -34,10 +34,10 @@ public class GroupDao {
 			logger.error(error);
 			throw new DAOException(error);
 		}
-		logger.trace("Start inserting group");
+		logger.trace("Start inserting group with name {}", group.getName());
 		String sql = "INSERT INTO groups (name) VALUES (?)";
 		jdbcTemplate.update(sql, group.getName());
-		logger.debug("Group inserted");
+		logger.debug("Group with name {} inserted", group.getName());
 	}
 
 	public void deleteById(int groupId) {

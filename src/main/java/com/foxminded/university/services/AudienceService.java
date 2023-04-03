@@ -23,15 +23,15 @@ public class AudienceService {
 	}
 
 	public void insert(int audienceNumber) {
-		logger.trace("Started AudienceService to insert audience");
+		logger.info("Started AudienceService to insert audience");
 		Audience audience = new Audience();
 		audience.setAudienceNumber(audienceNumber);
 		dao.insert(audience);
-		logger.trace("Audience inserted");
+		logger.info("Audience inserted");
 	}
 
 	public void insert(List<Integer> audienceNumbers) {
-		logger.trace("Started AudienceService to insert list of audiences");
+		logger.info("Started AudienceService to insert list of audiences");
 		for (int audienceNumber : audienceNumbers) {
 			Audience audience = new Audience();
 			audience.setAudienceNumber(audienceNumber);
@@ -40,17 +40,17 @@ public class AudienceService {
 	}
 
 	public void deleteById(int audienceId) {
-		logger.trace("Started AudienceService to delete audience by id {}", audienceId);
+		logger.info("Started AudienceService to delete audience by id {}", audienceId);
 		dao.deleteById(audienceId);
 	}
 
 	public List<Audience> getAllAudiences() {
-		logger.trace("Started AudienceService to get all audiences");
+		logger.info("Started AudienceService to get all audiences");
 		return dao.getAllAudiences();
 	}
 
 	public Audience getAudienceById(int audienceId) {
-		logger.trace("Started AudienceService to get audience by id {}", audienceId);
+		logger.info("Started AudienceService to get audience by id {}", audienceId);
 		return dao.getAudienceById(audienceId);
 	}
 }
