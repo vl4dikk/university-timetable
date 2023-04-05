@@ -1,0 +1,109 @@
+2023-04-05 21:00:55,748 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 18996 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 21:00:55,750 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 21:00:55,751 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 21:00:56,870 [INFO ][main            ][iversity.UniversityTtApplication] - Started UniversityTtApplication in 1.342 seconds (process running for 1.66)
+2023-04-05 21:01:13,671 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 11188 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 21:01:13,673 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 21:01:13,674 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 21:01:40,003 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 3288 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 21:01:40,005 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 21:01:40,006 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 21:05:58,492 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 16712 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 21:05:58,494 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 21:05:58,494 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 21:09:32,558 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 2064 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 21:09:32,560 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 21:09:32,560 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 21:15:45,667 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 10164 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 21:15:45,669 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 21:15:45,670 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 21:17:34,343 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 18664 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 21:17:34,344 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 21:17:34,345 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 21:26:02,965 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 10364 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 21:26:02,968 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 21:26:02,968 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 21:26:09,683 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 10572 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 21:26:09,685 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 21:26:09,686 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 21:26:46,169 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 17972 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 21:26:46,171 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 21:26:46,171 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 21:26:47,350 [INFO ][main            ][iversity.UniversityTtApplication] - Started UniversityTtApplication in 1.402 seconds (process running for 1.712)
+2023-04-05 21:26:57,481 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 18564 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 21:26:57,483 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 21:26:57,483 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 21:26:58,597 [INFO ][main            ][iversity.UniversityTtApplication] - Started UniversityTtApplication in 1.33 seconds (process running for 1.641)
+2023-04-05 21:27:38,413 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 18756 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 21:27:38,415 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 21:27:38,416 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 21:27:39,658 [INFO ][main            ][iversity.UniversityTtApplication] - Started UniversityTtApplication in 1.461 seconds (process running for 1.782)
+2023-04-05 21:29:12,613 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 7060 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 21:29:12,616 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 21:29:12,616 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 21:29:13,830 [INFO ][main            ][iversity.UniversityTtApplication] - Started UniversityTtApplication in 1.433 seconds (process running for 1.742)
+2023-04-05 21:29:44,296 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 2448 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 21:29:44,298 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 21:29:44,299 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 22:14:06,160 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 19888 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 22:14:06,162 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 22:14:06,162 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 22:14:17,424 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 16452 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 22:14:17,426 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 22:14:17,427 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 22:15:31,714 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 11184 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 22:15:31,716 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 22:15:31,716 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 22:16:05,340 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 20140 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 22:16:05,342 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 22:16:05,343 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 22:16:06,550 [INFO ][main            ][iversity.UniversityTtApplication] - Started UniversityTtApplication in 1.427 seconds (process running for 1.738)
+2023-04-05 22:17:38,647 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 8376 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 22:17:38,649 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 22:17:38,650 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 22:18:00,988 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 15332 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 22:18:00,990 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 22:18:00,990 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 22:19:46,130 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 5092 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 22:19:46,132 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 22:19:46,133 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 22:19:47,267 [INFO ][main            ][iversity.UniversityTtApplication] - Started UniversityTtApplication in 1.356 seconds (process running for 1.669)
+2023-04-05 22:19:59,589 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 1752 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 22:19:59,591 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 22:19:59,592 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 22:20:34,458 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 15940 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 22:20:34,460 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 22:20:34,460 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 22:24:32,964 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 20076 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 22:24:32,966 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 22:24:32,966 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 22:25:05,559 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 18216 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 22:25:05,561 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 22:25:05,561 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 22:25:41,994 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 17484 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 22:25:41,996 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 22:25:41,997 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 22:32:47,147 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 4392 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 22:32:47,149 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 22:32:47,150 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 22:33:43,016 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 16928 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 22:33:43,018 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 22:33:43,019 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 22:34:22,675 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 10492 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 22:34:22,677 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 22:34:22,677 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 22:36:03,006 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 13504 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 22:36:03,008 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 22:36:03,009 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 22:36:57,808 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 1560 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 22:36:57,810 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 22:36:57,810 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 22:38:34,001 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 17280 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 22:38:34,003 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 22:38:34,004 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 22:39:16,050 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 11024 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 22:39:16,052 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 22:39:16,053 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-05 22:43:48,557 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 8440 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-05 22:43:48,559 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-05 22:43:48,559 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"

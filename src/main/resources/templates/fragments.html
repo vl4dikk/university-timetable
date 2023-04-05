@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:fragment="header">
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+	<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="https://foxminded.ua"><img
+			src="https://cdn-ckkcn.nitrocdn.com/zFBNvlNnhjnAtIruckhWUtdrrYcfdzYJ/assets/images/optimized/rev-b0e3cf0/wp-content/themes/foxminded/icon/logo/logo.svg"
+			style="width: 40px;"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link" th:href="@{/}">Home</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/audiences/getAllAudiences}">Audiences</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/groups/getAllGroups}">Groups</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/students/getAllStudents}">Students</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/teachers/getAllTeachers}">Teachers</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/lessons/getAllLessons}">Lessons</a></li>
+			</ul>
+		</div>
+	</nav>
+	
+</body>
+</html>

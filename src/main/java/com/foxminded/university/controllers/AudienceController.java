@@ -14,12 +14,12 @@ import com.foxminded.university.services.AudienceService;
 @Controller
 @RequestMapping("/audiences")
 public class AudienceController {
-	
+
 	@Autowired
 	private AudienceService service;
 
 	@GetMapping("/getAllAudiences")
-	public String getAllAudiences (Model model) {
+	public String getAllAudiences(Model model) {
 		List<Audience> audiences = service.getAllAudiences();
 		model.addAttribute("audiences", audiences);
 		return "audiences/getAllAudiences";

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: header">
+<title>List of lessons</title>
+</head>
+<body>
+	<nav th:replace="fragments :: navbar"></nav>
+	<div class="container">
+		<h1>List of lessons</h1>
+		<table class="table table-striped table-bordered table-dark">
+			<thead class="thead-dark">
+				<tr>
+					<th>Lesson Id</th>
+					<th>Lesson Name</th>
+					<th>Teacher</th>
+					<th>Group</th>
+					<th>Audience</th>
+					<th>Time</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="lesson : ${lessons}">
+					<td th:text="${lesson.lessonId}"></td>
+					<td th:text="${lesson.name}"></td>
+	                <td th:text="${lesson.teacher.firstName + ' ' + lesson.teacher.lastName}"></td>	
+	                <td th:text="${lesson.group.name}"></td>
+	                <td th:text="${lesson.getAudience().audienceNumber}"></td>
+	                <td th:text="${lesson.time}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

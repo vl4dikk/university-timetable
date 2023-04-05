@@ -1,0 +1,145 @@
+2023-04-06 00:46:02,220 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 8000 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-06 00:46:02,225 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 00:46:02,226 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 00:46:03,415 [INFO ][main            ][iversity.UniversityTtApplication] - Started UniversityTtApplication in 1.417 seconds (process running for 1.742)
+2023-04-06 00:46:36,033 [INFO ][-nio-8080-exec-3][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 00:47:20,959 [INFO ][-nio-8080-exec-6][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 00:47:44,965 [INFO ][-nio-8080-exec-8][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 00:50:14,193 [INFO ][-nio-8080-exec-1][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 00:50:18,679 [INFO ][-nio-8080-exec-3][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 00:50:20,349 [INFO ][-nio-8080-exec-5][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 00:51:43,399 [INFO ][-nio-8080-exec-8][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 00:51:44,799 [INFO ][-nio-8080-exec-9][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 00:51:54,068 [INFO ][-nio-8080-exec-1][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 00:56:23,622 [INFO ][-nio-8080-exec-4][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 00:58:04,066 [INFO ][-nio-8080-exec-2][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 00:58:25,512 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 9860 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-06 00:58:25,515 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 00:58:25,515 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 00:58:26,702 [INFO ][main            ][iversity.UniversityTtApplication] - Started UniversityTtApplication in 1.415 seconds (process running for 1.726)
+2023-04-06 00:58:29,272 [INFO ][-nio-8080-exec-1][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 00:58:31,560 [INFO ][-nio-8080-exec-3][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 00:58:32,951 [INFO ][-nio-8080-exec-4][university.services.GroupService] - Started GroupService to get all groups
+2023-04-06 00:58:37,141 [INFO ][-nio-8080-exec-5][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 00:58:38,240 [INFO ][-nio-8080-exec-7][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 00:58:38,782 [INFO ][-nio-8080-exec-8][university.services.GroupService] - Started GroupService to get all groups
+2023-04-06 01:00:35,637 [INFO ][-nio-8080-exec-1][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 01:00:36,576 [INFO ][-nio-8080-exec-2][university.services.GroupService] - Started GroupService to get all groups
+2023-04-06 01:00:48,267 [INFO ][-nio-8080-exec-3][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 01:00:52,699 [INFO ][-nio-8080-exec-5][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 01:00:55,025 [INFO ][-nio-8080-exec-6][university.services.GroupService] - Started GroupService to get all groups
+2023-04-06 01:12:03,759 [INFO ][-nio-8080-exec-9][university.services.GroupService] - Started GroupService to get all groups
+2023-04-06 01:12:05,059 [INFO ][nio-8080-exec-10][university.services.GroupService] - Started GroupService to get all groups
+2023-04-06 01:12:08,601 [INFO ][-nio-8080-exec-1][university.services.GroupService] - Started GroupService to get all groups
+2023-04-06 01:12:30,777 [INFO ][-nio-8080-exec-3][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 01:12:31,478 [INFO ][-nio-8080-exec-4][university.services.GroupService] - Started GroupService to get all groups
+2023-04-06 01:13:01,361 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 4136 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-06 01:13:01,363 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 01:13:01,364 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 01:13:02,552 [INFO ][main            ][iversity.UniversityTtApplication] - Started UniversityTtApplication in 1.414 seconds (process running for 1.73)
+2023-04-06 01:13:05,368 [INFO ][-nio-8080-exec-1][university.services.GroupService] - Started GroupService to get all groups
+2023-04-06 01:13:07,754 [INFO ][-nio-8080-exec-2][university.services.GroupService] - Started GroupService to get all groups
+2023-04-06 01:13:08,694 [INFO ][-nio-8080-exec-3][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 01:13:10,091 [INFO ][-nio-8080-exec-4][university.services.GroupService] - Started GroupService to get all groups
+2023-04-06 01:13:11,062 [INFO ][-nio-8080-exec-5][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 01:13:11,603 [INFO ][-nio-8080-exec-6][university.services.GroupService] - Started GroupService to get all groups
+2023-04-06 01:15:34,082 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 17612 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-06 01:15:34,084 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 01:15:34,084 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 01:15:35,271 [INFO ][main            ][iversity.UniversityTtApplication] - Started UniversityTtApplication in 1.411 seconds (process running for 1.723)
+2023-04-06 01:15:39,643 [INFO ][-nio-8080-exec-2][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:16:03,337 [INFO ][-nio-8080-exec-3][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:16:05,604 [INFO ][-nio-8080-exec-5][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:16:12,408 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 17900 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-06 01:16:12,410 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 01:16:12,410 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 01:16:13,582 [INFO ][main            ][iversity.UniversityTtApplication] - Started UniversityTtApplication in 1.394 seconds (process running for 1.702)
+2023-04-06 01:16:16,117 [INFO ][-nio-8080-exec-1][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:21:31,650 [INFO ][-nio-8080-exec-3][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:21:34,715 [INFO ][-nio-8080-exec-5][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:21:42,225 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 10440 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-06 01:21:42,227 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 01:21:42,228 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 01:21:43,391 [INFO ][main            ][iversity.UniversityTtApplication] - Started UniversityTtApplication in 1.381 seconds (process running for 1.692)
+2023-04-06 01:21:45,163 [INFO ][-nio-8080-exec-1][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:21:47,612 [INFO ][-nio-8080-exec-2][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 01:21:48,101 [INFO ][-nio-8080-exec-3][university.services.GroupService] - Started GroupService to get all groups
+2023-04-06 01:21:48,909 [INFO ][-nio-8080-exec-4][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:22:42,346 [INFO ][-nio-8080-exec-5][university.services.GroupService] - Started GroupService to get all groups
+2023-04-06 01:22:43,485 [INFO ][-nio-8080-exec-6][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:22:46,687 [INFO ][-nio-8080-exec-7][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:22:53,118 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 18476 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-06 01:22:53,120 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 01:22:53,120 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 01:22:54,302 [INFO ][main            ][iversity.UniversityTtApplication] - Started UniversityTtApplication in 1.406 seconds (process running for 1.716)
+2023-04-06 01:22:57,217 [INFO ][-nio-8080-exec-1][university.services.GroupService] - Started GroupService to get all groups
+2023-04-06 01:22:57,807 [INFO ][-nio-8080-exec-2][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:23:38,700 [INFO ][-nio-8080-exec-3][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:23:39,462 [INFO ][-nio-8080-exec-4][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:23:40,507 [INFO ][-nio-8080-exec-5][university.services.GroupService] - Started GroupService to get all groups
+2023-04-06 01:23:41,230 [INFO ][-nio-8080-exec-6][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:23:52,920 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 19100 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-06 01:23:52,922 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 01:23:52,922 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 01:23:54,104 [INFO ][main            ][iversity.UniversityTtApplication] - Started UniversityTtApplication in 1.406 seconds (process running for 1.717)
+2023-04-06 01:23:55,078 [INFO ][-nio-8080-exec-1][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:23:57,518 [INFO ][-nio-8080-exec-2][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:23:59,455 [INFO ][-nio-8080-exec-3][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 01:24:00,147 [INFO ][-nio-8080-exec-4][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:26:41,803 [INFO ][-nio-8080-exec-7][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 01:26:42,673 [INFO ][-nio-8080-exec-8][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:26:44,229 [INFO ][-nio-8080-exec-9][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:26:58,692 [INFO ][nio-8080-exec-10][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 01:26:59,468 [INFO ][-nio-8080-exec-1][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:27:10,246 [INFO ][-nio-8080-exec-2][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:27:11,703 [INFO ][-nio-8080-exec-3][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:27:43,924 [INFO ][-nio-8080-exec-4][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:28:11,285 [INFO ][-nio-8080-exec-6][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:28:40,300 [INFO ][-nio-8080-exec-7][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:29:13,655 [INFO ][-nio-8080-exec-9][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:29:58,782 [INFO ][nio-8080-exec-10][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:30:35,919 [INFO ][-nio-8080-exec-2][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:30:49,012 [INFO ][-nio-8080-exec-3][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:31:27,855 [INFO ][-nio-8080-exec-4][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:31:29,435 [INFO ][-nio-8080-exec-5][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:31:29,991 [INFO ][-nio-8080-exec-6][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:31:39,153 [INFO ][-nio-8080-exec-7][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:32:32,905 [INFO ][-nio-8080-exec-8][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:32:46,755 [INFO ][nio-8080-exec-10][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:32:47,499 [INFO ][-nio-8080-exec-1][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:33:02,278 [INFO ][-nio-8080-exec-2][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:34:02,632 [INFO ][-nio-8080-exec-4][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:34:35,588 [INFO ][-nio-8080-exec-5][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:34:57,100 [INFO ][-nio-8080-exec-6][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:34:58,613 [INFO ][-nio-8080-exec-7][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:34:59,206 [INFO ][-nio-8080-exec-8][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:35:16,984 [INFO ][nio-8080-exec-10][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:35:38,793 [INFO ][-nio-8080-exec-1][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:41:29,241 [INFO ][-nio-8080-exec-4][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:41:52,649 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 5108 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-06 01:41:52,651 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 01:41:52,652 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 01:41:53,831 [INFO ][main            ][iversity.UniversityTtApplication] - Started UniversityTtApplication in 1.406 seconds (process running for 1.719)
+2023-04-06 01:41:54,452 [INFO ][-nio-8080-exec-1][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:41:55,859 [INFO ][-nio-8080-exec-2][iversity.services.StudentService] - Started StudentService to get all students
+2023-04-06 01:42:09,724 [INFO ][-nio-8080-exec-3][iversity.services.StudentService] - Started StudentService to get all students
+2023-04-06 01:42:12,975 [INFO ][-nio-8080-exec-5][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 01:42:15,416 [INFO ][-nio-8080-exec-6][university.services.GroupService] - Started GroupService to get all groups
+2023-04-06 01:42:17,387 [INFO ][-nio-8080-exec-7][iversity.services.StudentService] - Started StudentService to get all students
+2023-04-06 01:42:19,171 [INFO ][-nio-8080-exec-8][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:46:27,891 [INFO ][-nio-8080-exec-1][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:46:52,793 [INFO ][-nio-8080-exec-2][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:47:03,672 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 708 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-06 01:47:03,675 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 01:47:03,675 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 01:47:04,853 [INFO ][main            ][iversity.UniversityTtApplication] - Started UniversityTtApplication in 1.409 seconds (process running for 1.722)
+2023-04-06 01:47:06,291 [INFO ][-nio-8080-exec-1][iversity.services.TeacherService] - Started TeacherService to get all teachers
+2023-04-06 01:47:28,160 [INFO ][-nio-8080-exec-3][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 01:47:29,768 [INFO ][-nio-8080-exec-4][university.services.GroupService] - Started GroupService to get all groups
+2023-04-06 01:47:30,450 [INFO ][-nio-8080-exec-5][iversity.services.StudentService] - Started StudentService to get all students
+2023-04-06 01:47:31,288 [INFO ][-nio-8080-exec-6][iversity.services.TeacherService] - Started TeacherService to get all teachers
+2023-04-06 01:47:32,016 [INFO ][-nio-8080-exec-7][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 01:47:34,872 [INFO ][-nio-8080-exec-8][iversity.services.TeacherService] - Started TeacherService to get all teachers
+2023-04-06 01:47:36,350 [INFO ][-nio-8080-exec-9][iversity.services.StudentService] - Started StudentService to get all students
+2023-04-06 01:47:37,861 [INFO ][nio-8080-exec-10][university.services.GroupService] - Started GroupService to get all groups
+2023-04-06 01:47:39,196 [INFO ][-nio-8080-exec-1][versity.services.AudienceService] - Started AudienceService to get all audiences
