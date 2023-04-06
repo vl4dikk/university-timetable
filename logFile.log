@@ -143,3 +143,110 @@
 2023-04-06 01:47:36,350 [INFO ][-nio-8080-exec-9][iversity.services.StudentService] - Started StudentService to get all students
 2023-04-06 01:47:37,861 [INFO ][nio-8080-exec-10][university.services.GroupService] - Started GroupService to get all groups
 2023-04-06 01:47:39,196 [INFO ][-nio-8080-exec-1][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 12:36:05,202 [INFO ][main            ][iversity.UniversityTtApplication] - Starting UniversityTtApplication using Java 17.0.4 with PID 3504 (C:\workspace\university-timetable\target\classes started by vladr in C:\workspace\university-timetable)
+2023-04-06 12:36:05,204 [DEBUG][main            ][iversity.UniversityTtApplication] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 12:36:05,205 [INFO ][main            ][iversity.UniversityTtApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 12:36:06,489 [INFO ][main            ][iversity.UniversityTtApplication] - Started UniversityTtApplication in 1.512 seconds (process running for 1.868)
+2023-04-06 12:36:17,293 [INFO ][-nio-8080-exec-4][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 12:36:18,903 [INFO ][-nio-8080-exec-5][university.services.GroupService] - Started GroupService to get all groups
+2023-04-06 12:36:22,078 [INFO ][-nio-8080-exec-6][iversity.services.StudentService] - Started StudentService to get all students
+2023-04-06 12:36:28,500 [INFO ][-nio-8080-exec-7][iversity.services.TeacherService] - Started TeacherService to get all teachers
+2023-04-06 12:36:32,094 [INFO ][-nio-8080-exec-8][niversity.services.LessonService] - Started LessonService to get all lessons
+2023-04-06 12:37:00,024 [INFO ][-nio-8080-exec-9][university.services.GroupService] - Started GroupService to get all groups
+2023-04-06 12:37:01,865 [INFO ][nio-8080-exec-10][iversity.services.StudentService] - Started StudentService to get all students
+2023-04-06 13:04:35,752 [INFO ][main            ][ntrollers.HomePageControllerTest] - Starting HomePageControllerTest using Java 17.0.4 with PID 1204 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:04:35,754 [DEBUG][main            ][ntrollers.HomePageControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:04:35,754 [INFO ][main            ][ntrollers.HomePageControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:04:36,403 [INFO ][main            ][ntrollers.HomePageControllerTest] - Started HomePageControllerTest in 0.84 seconds (process running for 1.554)
+2023-04-06 13:04:49,428 [INFO ][main            ][ntrollers.HomePageControllerTest] - Starting HomePageControllerTest using Java 17.0.4 with PID 7472 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:04:49,430 [DEBUG][main            ][ntrollers.HomePageControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:04:49,430 [INFO ][main            ][ntrollers.HomePageControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:04:50,044 [INFO ][main            ][ntrollers.HomePageControllerTest] - Started HomePageControllerTest in 0.8 seconds (process running for 1.477)
+2023-04-06 13:07:38,808 [INFO ][main            ][versity.services.AudienceService] - Started AudienceService to insert list of audiences
+2023-04-06 13:07:38,834 [INFO ][main            ][versity.services.AudienceService] - Started AudienceService to get all audiences
+2023-04-06 13:07:38,836 [INFO ][main            ][versity.services.AudienceService] - Started AudienceService to get audience by id 0
+2023-04-06 13:07:38,839 [INFO ][main            ][versity.services.AudienceService] - Started AudienceService to insert audience
+2023-04-06 13:07:38,839 [INFO ][main            ][versity.services.AudienceService] - Audience inserted
+2023-04-06 13:07:38,840 [INFO ][main            ][versity.services.AudienceService] - Started AudienceService to delete audience by id 0
+2023-04-06 13:21:02,996 [INFO ][main            ][ntrollers.AudienceControllerTest] - Starting AudienceControllerTest using Java 17.0.4 with PID 4184 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:21:02,998 [DEBUG][main            ][ntrollers.AudienceControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:21:02,998 [INFO ][main            ][ntrollers.AudienceControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:21:23,787 [INFO ][main            ][ntrollers.HomePageControllerTest] - Starting HomePageControllerTest using Java 17.0.4 with PID 16688 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:21:23,788 [DEBUG][main            ][ntrollers.HomePageControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:21:23,789 [INFO ][main            ][ntrollers.HomePageControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:21:24,411 [INFO ][main            ][ntrollers.HomePageControllerTest] - Started HomePageControllerTest in 0.81 seconds (process running for 1.498)
+2023-04-06 13:21:31,926 [INFO ][main            ][ntrollers.AudienceControllerTest] - Starting AudienceControllerTest using Java 17.0.4 with PID 15344 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:21:31,928 [DEBUG][main            ][ntrollers.AudienceControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:21:31,929 [INFO ][main            ][ntrollers.AudienceControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:21:36,910 [INFO ][main            ][.controllers.GroupControllerTest] - Starting GroupControllerTest using Java 17.0.4 with PID 15048 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:21:36,911 [DEBUG][main            ][.controllers.GroupControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:21:36,912 [INFO ][main            ][.controllers.GroupControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:23:25,121 [INFO ][main            ][ntrollers.AudienceControllerTest] - Starting AudienceControllerTest using Java 17.0.4 with PID 1088 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:23:25,123 [DEBUG][main            ][ntrollers.AudienceControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:23:25,124 [INFO ][main            ][ntrollers.AudienceControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:28:30,105 [INFO ][main            ][ntrollers.AudienceControllerTest] - Starting AudienceControllerTest using Java 17.0.4 with PID 3764 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:28:30,107 [DEBUG][main            ][ntrollers.AudienceControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:28:30,107 [INFO ][main            ][ntrollers.AudienceControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:29:43,032 [INFO ][main            ][ntrollers.AudienceControllerTest] - Starting AudienceControllerTest using Java 17.0.4 with PID 6492 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:29:43,034 [DEBUG][main            ][ntrollers.AudienceControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:29:43,034 [INFO ][main            ][ntrollers.AudienceControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:30:55,690 [INFO ][main            ][ntrollers.AudienceControllerTest] - Starting AudienceControllerTest using Java 17.0.4 with PID 4112 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:30:55,692 [DEBUG][main            ][ntrollers.AudienceControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:30:55,692 [INFO ][main            ][ntrollers.AudienceControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:30:56,248 [INFO ][main            ][ntrollers.AudienceControllerTest] - Started AudienceControllerTest in 0.762 seconds (process running for 1.749)
+2023-04-06 13:31:31,948 [INFO ][main            ][.controllers.GroupControllerTest] - Starting GroupControllerTest using Java 17.0.4 with PID 12972 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:31:31,950 [DEBUG][main            ][.controllers.GroupControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:31:31,951 [INFO ][main            ][.controllers.GroupControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:31:32,543 [INFO ][main            ][.controllers.GroupControllerTest] - Started GroupControllerTest in 0.795 seconds (process running for 1.423)
+2023-04-06 13:32:25,535 [INFO ][main            ][.controllers.GroupControllerTest] - Starting GroupControllerTest using Java 17.0.4 with PID 10328 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:32:25,537 [DEBUG][main            ][.controllers.GroupControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:32:25,538 [INFO ][main            ][.controllers.GroupControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:32:26,094 [INFO ][main            ][.controllers.GroupControllerTest] - Started GroupControllerTest in 0.762 seconds (process running for 1.746)
+2023-04-06 13:33:13,285 [INFO ][main            ][.controllers.GroupControllerTest] - Starting GroupControllerTest using Java 17.0.4 with PID 2600 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:33:13,287 [DEBUG][main            ][.controllers.GroupControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:33:13,288 [INFO ][main            ][.controllers.GroupControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:33:13,845 [INFO ][main            ][.controllers.GroupControllerTest] - Started GroupControllerTest in 0.764 seconds (process running for 1.743)
+2023-04-06 13:33:29,498 [INFO ][main            ][.controllers.GroupControllerTest] - Starting GroupControllerTest using Java 17.0.4 with PID 6640 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:33:29,500 [DEBUG][main            ][.controllers.GroupControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:33:29,501 [INFO ][main            ][.controllers.GroupControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:33:30,067 [INFO ][main            ][.controllers.GroupControllerTest] - Started GroupControllerTest in 0.772 seconds (process running for 1.758)
+2023-04-06 13:33:56,387 [INFO ][main            ][ntrollers.HomePageControllerTest] - Starting HomePageControllerTest using Java 17.0.4 with PID 5932 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:33:56,389 [DEBUG][main            ][ntrollers.HomePageControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:33:56,389 [INFO ][main            ][ntrollers.HomePageControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:33:56,992 [INFO ][main            ][ntrollers.HomePageControllerTest] - Started HomePageControllerTest in 0.791 seconds (process running for 1.467)
+2023-04-06 13:35:20,714 [INFO ][main            ][controllers.LessonControllerTest] - Starting LessonControllerTest using Java 17.0.4 with PID 728 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:35:20,716 [DEBUG][main            ][controllers.LessonControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:35:20,717 [INFO ][main            ][controllers.LessonControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:35:21,277 [INFO ][main            ][controllers.LessonControllerTest] - Started LessonControllerTest in 0.766 seconds (process running for 1.746)
+2023-04-06 13:35:33,448 [INFO ][main            ][controllers.LessonControllerTest] - Starting LessonControllerTest using Java 17.0.4 with PID 9092 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:35:33,449 [DEBUG][main            ][controllers.LessonControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:35:33,450 [INFO ][main            ][controllers.LessonControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:35:34,017 [INFO ][main            ][controllers.LessonControllerTest] - Started LessonControllerTest in 0.775 seconds (process running for 1.758)
+2023-04-06 13:37:06,000 [INFO ][main            ][ontrollers.StudentControllerTest] - Starting StudentControllerTest using Java 17.0.4 with PID 16844 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:37:06,002 [DEBUG][main            ][ontrollers.StudentControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:37:06,002 [INFO ][main            ][ontrollers.StudentControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:37:06,576 [INFO ][main            ][ontrollers.StudentControllerTest] - Started StudentControllerTest in 0.783 seconds (process running for 1.774)
+2023-04-06 13:38:22,697 [INFO ][main            ][ontrollers.TeacherControllerTest] - Starting TeacherControllerTest using Java 17.0.4 with PID 1636 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:38:22,699 [DEBUG][main            ][ontrollers.TeacherControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:38:22,699 [INFO ][main            ][ontrollers.TeacherControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:38:23,288 [INFO ][main            ][ontrollers.TeacherControllerTest] - Started TeacherControllerTest in 0.799 seconds (process running for 1.795)
+2023-04-06 13:38:28,303 [INFO ][main            ][ontrollers.StudentControllerTest] - Starting StudentControllerTest using Java 17.0.4 with PID 7880 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:38:28,305 [DEBUG][main            ][ontrollers.StudentControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:38:28,306 [INFO ][main            ][ontrollers.StudentControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:38:28,867 [INFO ][main            ][ontrollers.StudentControllerTest] - Started StudentControllerTest in 0.766 seconds (process running for 1.757)
+2023-04-06 13:38:33,271 [INFO ][main            ][controllers.LessonControllerTest] - Starting LessonControllerTest using Java 17.0.4 with PID 14520 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:38:33,273 [DEBUG][main            ][controllers.LessonControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:38:33,274 [INFO ][main            ][controllers.LessonControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:38:33,844 [INFO ][main            ][controllers.LessonControllerTest] - Started LessonControllerTest in 0.782 seconds (process running for 1.773)
+2023-04-06 13:38:37,419 [INFO ][main            ][ntrollers.HomePageControllerTest] - Starting HomePageControllerTest using Java 17.0.4 with PID 8400 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:38:37,421 [DEBUG][main            ][ntrollers.HomePageControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:38:37,421 [INFO ][main            ][ntrollers.HomePageControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:38:38,048 [INFO ][main            ][ntrollers.HomePageControllerTest] - Started HomePageControllerTest in 0.816 seconds (process running for 1.506)
+2023-04-06 13:38:42,659 [INFO ][main            ][.controllers.GroupControllerTest] - Starting GroupControllerTest using Java 17.0.4 with PID 11200 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:38:42,661 [DEBUG][main            ][.controllers.GroupControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:38:42,661 [INFO ][main            ][.controllers.GroupControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:38:43,231 [INFO ][main            ][.controllers.GroupControllerTest] - Started GroupControllerTest in 0.775 seconds (process running for 1.754)
+2023-04-06 13:38:47,456 [INFO ][main            ][ntrollers.AudienceControllerTest] - Starting AudienceControllerTest using Java 17.0.4 with PID 6280 (started by vladr in C:\workspace\university-timetable)
+2023-04-06 13:38:47,459 [DEBUG][main            ][ntrollers.AudienceControllerTest] - Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-04-06 13:38:47,459 [INFO ][main            ][ntrollers.AudienceControllerTest] - No active profile set, falling back to 1 default profile: "default"
+2023-04-06 13:38:48,022 [INFO ][main            ][ntrollers.AudienceControllerTest] - Started AudienceControllerTest in 0.769 seconds (process running for 1.757)
