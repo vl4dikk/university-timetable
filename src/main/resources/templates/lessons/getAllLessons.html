@@ -25,7 +25,7 @@
 	                <td th:text="${lesson.teacher.firstName + ' ' + lesson.teacher.lastName}"></td>	
 	                <td th:text="${lesson.group.name}"></td>
 	                <td th:text="${lesson.getAudience().audienceNumber}"></td>
-	                <td th:text="${lesson.time}"></td>
+	                <td th:text="${#temporals.format(lesson.time, 'dd-MM-yyyy HH:mm')}"></td>
 				</tr>
 			</tbody>
 		</table>
