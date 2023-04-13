@@ -54,4 +54,9 @@ public class GroupService {
 		logger.info("Started GroupService to get group by id");
 		return dao.getGroupById(groupId);
 	}
+	
+	public void update (Group group) {
+		logger.info("Started GroupService to update group");
+		dao.update(group);
+	}
 }

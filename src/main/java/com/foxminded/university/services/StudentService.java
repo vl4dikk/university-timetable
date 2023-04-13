@@ -24,11 +24,8 @@ public class StudentService {
 		this.dao = dao;
 	}
 
-	public void insert(String firstName, String lastName) {
+	public void insert(Student student) {
 		logger.info("Started StudentService to insert student");
-		Student student = new Student();
-		student.setFirstName(firstName);
-		student.setLastName(lastName);
 		dao.insert(student);
 		logger.info("Student inserted");
 	}
@@ -64,6 +61,11 @@ public class StudentService {
 	public void assignStudentToGroup(int studentId, int groupId) {
 		logger.info("Started StudentService to assign student to group");
 		dao.assignStudentToGroup(studentId, groupId);
+	}
+	
+	public void update (Student student) {
+		logger.info("Started StudentService to update student");
+		dao.update(student);
 	}
 
 }

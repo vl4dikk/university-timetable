@@ -27,7 +27,10 @@ class StudentServiceTest {
 
 	@Test
 	void testInsertStringString() {
-		service.insert("123", "321");
+		Student student = new Student();
+		student.setFirstName(null);
+		student.setLastName(null);
+		service.insert(student);
 		verify(dao, times(1)).insert(any(Student.class));
 	}
 

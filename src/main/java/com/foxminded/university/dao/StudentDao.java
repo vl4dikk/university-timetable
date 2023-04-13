@@ -34,11 +34,11 @@ public class StudentDao {
 			logger.error(error);
 			throw new DAOException(error);
 		}
-		String sql = "INSERT INTO students (firstName, lastName) VALUES (?, ?)";
-		jdbcTemplate.update(sql, student.getFirstName(), student.getLastName());
+		String sql = "INSERT INTO students (firstName, lastName, group_id) VALUES (?, ?, ?)";
+		jdbcTemplate.update(sql, student.getFirstName(), student.getLastName(), student.getGroup().getId());
 		logger.trace("Student inserted");
 	}
-
+	
 	public void deleteById(int studentId) {
 		logger.trace("Deleting student with id {}", studentId);
 		String sql = "DELETE FROM students WHERE studentId = ?";
@@ -96,6 +96,12 @@ public class StudentDao {
 		logger.trace("Assigning student with id {}, to group with id{}", studentId, groupId);
 		String sql = "UPDATE students SET group_id = ? WHERE studentId = ?";
 		jdbcTemplate.update(sql, groupId, studentId);
+	}
+	
+	public void update(Student student) {
+		logger.trace("Updating student with id {}", student.getStudentId());
+		String sql = "UPDATE students SET firstName = ?, lastName = ?, group_id = ?  WHERE id = ?";
+		jdbcTemplate.update(sql, student.getFirstName(), student.getLastName(), student.getGroup().getId(), student.getStudentId());
 	}
 
 }

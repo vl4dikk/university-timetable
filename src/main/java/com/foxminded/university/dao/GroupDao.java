@@ -70,5 +70,11 @@ public class GroupDao {
 		}
 		return group;
 	}
+	
+	public void update(Group group) {
+		logger.trace("Updating group with id {}", group.getId());
+		String sql = "UPDATE groups SET name = ?  WHERE id = ?";
+		jdbcTemplate.update(sql, group.getName(), group.getId());
+	}
 
 }

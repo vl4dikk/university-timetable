@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: header">
+<meta charset="UTF-8">
+<title>Add new student form</title>
+</head>
+<body>
+	<nav th:replace="fragments :: navbar"></nav>
+
+
+
+	<div class="container">
+		<h1>Student Management System</h1>
+		<hr>
+		<h2>Update Student</h2>
+
+ 		<form action="#" th:action="@{/students/updateStudent}"
+			th:object="${student}" th:method="POST">
+
+ 			<input type="hidden" th:field="*{studentId}" />
+
+			<div class="form-row">
+				<div class="form-group col-md-2">
+					<label for="firstName">First Name</label> <input type="text"
+						class="form-control" placeholder="First Name"
+						th:field="*{firstName}">
+				</div>
+				<div class="form-group col-md-2">
+					<label for="lastName">Last Name</label> <input type="text"
+						class="form-control" placeholder="Last Name"
+						th:field="*{lastName}">
+				</div>
+				<div class="form-group col-md-2">
+					<label for="groupSelect">Group</label> <select class="form-control">
+						<option th:each="group : ${groups}" th:value="${group.id}"
+							th:selected="(${group.id} == *{group.id})" th:text="${group.name}" /></option>
+					</select>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Save</button>
+		</form>
+
+		<hr>
+
+		<a th:href="@{/students/getAllStudents}"> Back to students List</a>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

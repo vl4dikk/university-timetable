@@ -4,9 +4,11 @@
 <title>List of audiences</title>
 </head>
 <body>
-<nav th:replace="fragments :: navbar"></nav>
+	<nav th:replace="fragments :: navbar"></nav>
 	<div class="container">
 		<h1>AudiencesList</h1>
+		<a th:href="@{/audiences/addNewAudienceForm}"
+			class="btn btn-success btn-sm mb-3"> Add Audience </a>
 		<table class="table table-striped table-bordered table-dark">
 			<thead class="thead-dark">
 				<tr>
@@ -18,6 +20,11 @@
 				<tr th:each="audience : ${audiences}">
 					<td th:text="${audience.audienceId}"></td>
 					<td th:text="${audience.audienceNumber}"></td>
+										<td><a
+						th:href="@{/audiences/showFormForUpdate/{id}(id=${audience.audienceId})}"
+						class="btn btn-primary">Edit</a> <a
+						th:href="@{/audiences/deleteAudience/{id}(id=${audience.audienceId})}"
+						class="btn btn-danger">Delete</a></td>
 				</tr>
 			</tbody>
 		</table>
