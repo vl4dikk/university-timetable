@@ -59,5 +59,12 @@ class GroupServiceTest {
 		service.getGroupById(anyInt());
 		verify(dao, times(1)).getGroupById(anyInt());
 	}
+	
+	@Test
+	void testUpdate() {
+		Group group = new Group();
+		service.update(group);;
+		verify(dao, times(1)).update(any(Group.class));;
+	}
 
 }

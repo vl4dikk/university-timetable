@@ -58,4 +58,8 @@ public class LessonService {
 		logger.info("Started LessonService to get lesson by id");
 		return dao.getById(lessonId);
 	}
+	
+	public void update(Lesson lesson) {
+		dao.update(lesson);
+	}
 }

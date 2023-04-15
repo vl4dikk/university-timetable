@@ -121,5 +121,11 @@ public class LessonDao {
 		}
 		return result;
 	}
+	
+	public void update(Lesson lesson) {
+		logger.trace("Updating lesson with id {}", lesson.getLessonId());
+		String sql = "UPDATE lessons SET name = ?, teacher_id = ?, group_id = ?, audience_id = ?, lTime = ?  WHERE lessonId = ?";
+		jdbcTemplate.update(sql, lesson.getName(), lesson.getTeacher().getTeacherId(), lesson.getGroup().getId(), lesson.getAudience().getAudienceId(), lesson.getTime(), lesson.getLessonId());
+	}
 
 }

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: header">
+<meta charset="UTF-8">
+<title>Update lesson form</title>
+</head>
+<body>
+	<nav th:replace="fragments :: navbar"></nav>
+
+
+
+	<div class="container">
+		<h1>Lesson Management System</h1>
+		<hr>
+		<h2>Update Lesson</h2>
+
+		<form action="#" th:action="@{/lessons/updateLesson}"
+			th:object="${lesson}" th:method="POST">
+
+			<input type="hidden" th:field="*{lessonId}" />
+
+			<div class="form-row">
+				<div class="form-group col-md-2">
+					<label for="lessonName">Lesson Name</label> <input type="text"
+						class="form-control" placeholder="Lesson Name" th:field="*{name}">
+				</div>
+				<div class="form-group col-md-2">
+					<label for="teacherSelect">Teacher</label> <select
+						class="form-control" th:field="*{teacher.teacherId}">
+						<option th:each="teacher : ${teachers}"
+							th:value="${teacher.teacherId}"
+							th:selected="(${teacher.teacherId} == *{teacher.teacherId})"
+							th:text="${teacher.firstName} + ' ' + ${teacher.lastName}" /></option>
+					</select>
+				</div>
+				<div class="form-group col-md-2">
+					<label for="groupSelect">Group</label> <select class="form-control"
+						th:field="*{group.id}">
+						<option th:each="group : ${groups}" th:value="${group.id}"
+							th:selected="(${group.id} == *{group.id})"
+							th:text="${group.name}" /></option>
+					</select>
+				</div>
+				<div class="form-group col-md-2">
+					<label for="audienceSelect">Audience</label> <select
+						class="form-control" th:field="*{audience.audienceId}">
+						<option th:each="audience : ${audiences}"
+							th:value="${audience.audienceId}"
+							th:selected="(${audience.audienceId} == *{audience.audienceId})"
+							th:text="${audience.audienceNumber}" /></option>
+					</select>
+				</div>
+				<div class='col-sm-6'>
+					<div class="form-group">
+						<div class='input-group date' id='datetimepicker1'>
+							<input type='datetime-local' class="form-control"
+								id="datetimeInput" th:field="*{time}"> <span
+								class="input-group-addon"> <span
+								class="glyphicon glyphicon-calendar"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Save</button>
+
+			<hr>
+
+			<a th:href="@{/lessons/getAllLessons}"> Back to lessons List</a>
+		</form>
+	</div>
+
+	<script>
+		var now = new Date();
+
+		var formattedDate = now.toISOString().slice(0, 16);
+
+		document.getElementById('datetimeInput').value = formattedDate;
+	</script>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

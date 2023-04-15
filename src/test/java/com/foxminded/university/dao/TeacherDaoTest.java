@@ -81,5 +81,14 @@ class TeacherDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 		Teacher actual = teacherDao.getTeacherById(teacherDao.getAllTeachers().get(1).getTeacherId());
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	void testUpdate() {
+		Teacher expected = teacherDao.getAllTeachers().get(1);
+		expected.setFirstName("777777");
+		teacherDao.update(expected);
+		Teacher actual = teacherDao.getTeacherById(teacherDao.getAllTeachers().get(1).getTeacherId());
+		assertEquals(expected, actual);
+	}
 
 }

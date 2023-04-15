@@ -96,5 +96,14 @@ class StudentDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 		Student actual = studentDao.getById(2);
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	void testUpdate() {
+		Student expected = studentDao.getAllStudents().get(1);
+		expected.setFirstName("5555555");
+		studentDao.update(expected);
+		Student actual = studentDao.getById(2);
+		assertEquals(expected, actual);
+	}
 
 }

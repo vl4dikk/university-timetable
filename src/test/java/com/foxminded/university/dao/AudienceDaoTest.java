@@ -83,5 +83,14 @@ class AudienceDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 		Audience actual = audienceDao.getAudienceById(audienceDao.getAllAudiences().get(1).getAudienceId());
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	void testupdate() {
+		Audience expected = audienceDao.getAllAudiences().get(1);
+		expected.setAudienceNumber(55);
+		audienceDao.update(expected);
+		Audience actual = audienceDao.getAudienceById(audienceDao.getAllAudiences().get(1).getAudienceId());
+		assertEquals(expected, actual);
+	}
 
 }

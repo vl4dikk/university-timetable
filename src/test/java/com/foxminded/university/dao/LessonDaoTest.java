@@ -103,5 +103,14 @@ class LessonDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 		Lesson actual = lessonDao.getById(lessonDao.getAllLessons().get(3).getLessonId());
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	void testUpdate() {
+		Lesson expected = lessonDao.getAllLessons().get(3);
+		expected.setName("333333333");
+		lessonDao.update(expected);
+		Lesson actual = lessonDao.getById(lessonDao.getAllLessons().get(3).getLessonId());
+		assertEquals(expected, actual);
+	}
 
 }

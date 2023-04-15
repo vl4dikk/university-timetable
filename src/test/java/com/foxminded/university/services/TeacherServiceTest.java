@@ -57,5 +57,12 @@ class TeacherServiceTest {
 		service.getTeacherById(anyInt());
 		verify(dao, times(1)).getTeacherById(anyInt());
 	}
+	
+	@Test
+	void testUpdate() {
+		Teacher teacher = new Teacher();
+		service.update(teacher);;
+		verify(dao, times(1)).update(any(Teacher.class));;
+	}
 
 }

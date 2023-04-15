@@ -18,18 +18,38 @@
 			th:object="${audience}" th:method="POST">
 			<div class="form-row">
 				<div class="form-group col-md-2">
-					<label for="audienceNumber">Audience number</label> <input type="number"
-						class="form-control" placeholder="Group name"
-						th:field="*{audienceNumber}">
+					<label for="audienceNumber">Audience number</label> <input
+						id="audienceNumberInput" type="number" min="1" autocomplete="off"
+						oninput="this.value = Math.abs(this.value)" class="form-control"
+						placeholder="Group name" th:field="*{audienceNumber}">
 				</div>
 			</div>
-			<button type="submit" class="btn btn-primary">Save</button>
+			<button type="submit" class="btn btn-primary" id="submitButton">Save</button>
 		</form>
 
 		<hr>
 
 		<a th:href="@{/audiences/getAllAudiences}"> Back to audiences List</a>
 	</div>
+
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+		const existingNumbers = /*[[${existingNumbers}]]*/[];
+		/*]]>*/
+	</script>
+
+	<script>
+		var audienceNumberInput = document
+				.getElementById("audienceNumberInput");
+		audienceNumberInput.addEventListener("input", function() {
+			var enteredNumber = audienceNumberInput.value;
+			if (existingNumbers.includes(parseInt(enteredNumber))) {
+				submitButton.disabled = true;
+			} else {
+				submitButton.disabled = false;
+			}
+		});
+	</script>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script

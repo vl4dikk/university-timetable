@@ -28,29 +28,48 @@ public class AudienceController {
 		model.addAttribute("audiences", audiences);
 		return "audiences/getAllAudiences";
 	}
-	
+
 	@GetMapping("/deleteAudience/{id}")
-	public String deleteGroup(@PathVariable (value = "id") int id) {
+	public String deleteAudience(@PathVariable(value = "id") int id) {
 		service.deleteById(id);
 		return "redirect:/audiences/getAllAudiences";
 	}
-	
+
 	@GetMapping("/addNewAudienceForm")
 	public String addNewAudienceForm(Model model) {
 		List<Audience> audiences = service.getAllAudiences();
 		List<Integer> existingNumbers = new LinkedList<>();
-		for(Audience audience : audiences) {
-			existingNumbers.add(audience.getAudienceId());
+		for (Audience audience : audiences) {
+			existingNumbers.add(audience.getAudienceNumber());
 		}
 		Audience audience = new Audience();
 		model.addAttribute("existingNumbers", existingNumbers);
 		model.addAttribute("audience", audience);
 		return "audiences/addNewAudienceForm";
 	}
-	
+
 	@PostMapping("/insertAudience")
-	public String insertGroup(@ModelAttribute("audience") Audience audience) {
+	public String insertAudience(@ModelAttribute("audience") Audience audience) {
 		service.insert(audience.getAudienceNumber());
+		return "redirect:/audiences/getAllAudiences";
+	}
+
+	@GetMapping("/showFormForUpdate/{id}")
+	public String showFormForUpdate(@PathVariable(value = "id") int id, Model model) {
+		Audience audience = service.getAudienceById(id);
+		List<Audience> audiences = service.getAllAudiences();
+		List<Integer> existingNumbers = new LinkedList<>();
+		for (Audience audienceFromList : audiences) {
+			existingNumbers.add(audienceFromList.getAudienceNumber());
+		}
+		model.addAttribute("audience", audience);
+		model.addAttribute("existingNumbers", existingNumbers);
+		return "audiences/updateAudienceForm";
+	}
+
+	@PostMapping("/updateAudience")
+	public String updateAudience(@ModelAttribute("audience") Audience audience) {
+		service.update(audience);
 		return "redirect:/audiences/getAllAudiences";
 	}
 }

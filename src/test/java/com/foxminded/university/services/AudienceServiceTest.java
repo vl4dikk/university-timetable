@@ -58,5 +58,12 @@ class AudienceServiceTest {
 		service.getAudienceById(anyInt());
 		verify(dao, times(1)).getAudienceById(anyInt());
 	}
+	
+	@Test
+	void testUpdate() {
+		Audience audience = new Audience();
+		service.update(audience);
+		verify(dao, times(1)).update(any(Audience.class));
+	}
 
 }

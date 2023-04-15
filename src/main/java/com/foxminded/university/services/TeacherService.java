@@ -60,4 +60,9 @@ public class TeacherService {
 		logger.info("Started TeacherService to get teacher by id");
 		return dao.getTeacherById(teacherId);
 	}
+	
+	public void update(Teacher teacher) {
+		logger.info("Started TeacherService to update teacher");
+		dao.update(teacher);
+	}
 }

@@ -70,4 +70,10 @@ public class AudienceDao {
 		}
 		return audience;
 	}
+	
+	public void update(Audience audience) {
+		logger.trace("Updating audience with id {}", audience.getAudienceId());
+		String sql = "UPDATE audiences SET audienceNumber = ?  WHERE audienceId = ?";
+		jdbcTemplate.update(sql, audience.getAudienceNumber(), audience.getAudienceNumber());
+	}
 }

@@ -83,5 +83,14 @@ class GroupDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 		Group actual = groupDao.getGroupById(groupDao.getAllGroups().get(1).getId());
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	void testupdate() {
+		Group expected = groupDao.getAllGroups().get(1);
+		expected.setName("33333");
+		groupDao.update(expected);
+		Group actual = groupDao.getGroupById(groupDao.getAllGroups().get(1).getId());
+		assertEquals(expected, actual);
+	}
 
 }

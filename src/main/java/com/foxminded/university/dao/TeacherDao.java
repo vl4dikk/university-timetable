@@ -69,4 +69,10 @@ public class TeacherDao {
 		}
 		return teacher;
 	}
+	
+	public void update(Teacher teacher) {
+		logger.trace("Updating teacher with id {}", teacher.getTeacherId());
+		String sql = "UPDATE teachers SET firstName = ?, lastName = ? WHERE teacherId = ?";
+		jdbcTemplate.update(sql, teacher.getFirstName(), teacher.getLastName(), teacher.getTeacherId());
+	}
 }

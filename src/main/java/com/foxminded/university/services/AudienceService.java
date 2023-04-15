@@ -53,4 +53,8 @@ public class AudienceService {
 		logger.info("Started AudienceService to get audience by id {}", audienceId);
 		return dao.getAudienceById(audienceId);
 	}
+	
+	public void update(Audience audience) {
+		dao.update(audience);
+	}
 }

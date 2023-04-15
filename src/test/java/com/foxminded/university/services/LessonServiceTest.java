@@ -48,5 +48,12 @@ class LessonServiceTest {
 		service.getById(anyInt());
 		verify(dao, times(1)).getById(anyInt());
 	}
+	
+	@Test
+	void testUpdate() {
+		Lesson lesson = new Lesson();
+		service.update(lesson);;
+		verify(dao, times(1)).update(any(Lesson.class));;
+	}
 
 }
