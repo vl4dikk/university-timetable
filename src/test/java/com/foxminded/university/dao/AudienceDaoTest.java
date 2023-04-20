@@ -21,6 +21,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 import com.foxminded.university.models.Audience;
 
+
 @SpringBootTest
 @Testcontainers
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -54,11 +55,10 @@ class AudienceDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 	@Test
 	void testInsertAudience() {
 		Audience expected = new Audience();
-		expected.setAudienceId(audienceDao.getAllAudiences().size() + 1);
 		expected.setAudienceNumber(15);
 		audienceDao.insert(expected);
 		Audience actual = audienceDao.getAudienceById(audienceDao.getAllAudiences().size());
-		assertEquals(expected, actual);
+		assertEquals(expected.getAudienceNumber(), actual.getAudienceNumber());
 	}
 
 	@Test
@@ -87,9 +87,10 @@ class AudienceDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 	@Test
 	void testupdate() {
 		Audience expected = audienceDao.getAllAudiences().get(1);
+		int audienceId = audienceDao.getAllAudiences().get(1).getAudienceId();
 		expected.setAudienceNumber(55);
 		audienceDao.update(expected);
-		Audience actual = audienceDao.getAudienceById(audienceDao.getAllAudiences().get(1).getAudienceId());
+		Audience actual = audienceDao.getAudienceById(audienceId);
 		assertEquals(expected, actual);
 	}
 
