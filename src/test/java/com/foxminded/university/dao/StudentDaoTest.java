@@ -53,10 +53,10 @@ class StudentDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 	@Test
 	void testInsertStudent() {
 		Student expected = new Student();
-		expected.setStudentId(studentDao.getAllStudents().size() + 1);
 		expected.setFirstName("123");
 		expected.setLastName("321");
 		Group group = new Group();
+		group.setId(2);
 		expected.setGroup(group);
 		studentDao.insert(expected);
 		Student actual = studentDao.getById(studentDao.getAllStudents().size());
@@ -82,18 +82,6 @@ class StudentDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 	void testGetById() {
 		Student expected = studentDao.getAllStudents().get(1);
 		Student actual = studentDao.getById(studentDao.getAllStudents().get(1).getStudentId());
-		assertEquals(expected, actual);
-	}
-
-	@Test
-	void testAssignStudentToGroup() {
-		Student expected = studentDao.getAllStudents().get(1);
-		Group group = new Group();
-		group.setId(4);
-		group.setName("DaoTest4");
-		expected.setGroup(group);
-		studentDao.assignStudentToGroup(2, 4);
-		Student actual = studentDao.getById(2);
 		assertEquals(expected, actual);
 	}
 	

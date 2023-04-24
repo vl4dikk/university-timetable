@@ -4,29 +4,30 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.jdbc.core.RowMapper;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.foxminded.university.exceptions.DAOException;
-import com.foxminded.university.models.Group;
 import com.foxminded.university.models.Student;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 
 @Repository
 public class StudentDao {
 	
 	private static final Logger logger = LoggerFactory.getLogger(StudentDao.class);
 
-	private final JdbcTemplate jdbcTemplate;
+	@PersistenceContext
+	private EntityManager entityManager;
 
-	@Autowired
-	public StudentDao(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}
-
+	@Transactional
 	public void insert(Student student) {
 		logger.trace("Start inserting student");
 		if (student == null) {
@@ -34,52 +35,32 @@ public class StudentDao {
 			logger.error(error);
 			throw new DAOException(error);
 		}
-		String sql = "INSERT INTO students (firstName, lastName, group_id) VALUES (?, ?, ?)";
-		jdbcTemplate.update(sql, student.getFirstName(), student.getLastName(), student.getGroup().getId());
+		entityManager.persist(student);
 		logger.trace("Student inserted");
 	}
 	
+	@Transactional
 	public void deleteById(int studentId) {
 		logger.trace("Deleting student with id {}", studentId);
-		String sql = "DELETE FROM students WHERE studentId = ?";
-		jdbcTemplate.update(sql, studentId);
+		Student student = entityManager.find(Student.class, studentId);
+		entityManager.remove(student);
 	}
 
 	public List<Student> getAllStudents() {
 		logger.trace("Getting all students");
-		String sql = "SELECT s.studentId, s.firstName, s.lastName, g.id, g.name " + "FROM students s  "
-				+ "LEFT JOIN groups g  ON s.group_id = g.id";
-		return jdbcTemplate.query(sql, (rs, rowNum) -> {
-			Student student = new Student();
-			student.setStudentId(rs.getInt("studentId"));
-			student.setFirstName(rs.getString("firstName"));
-			student.setLastName(rs.getString("lastName"));
-			Group group = new Group();
-			group.setId(rs.getInt("id"));
-			group.setName(rs.getString("name"));
-			student.setGroup(group);
-			return student;
-		});
+		CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Student> cq = cb.createQuery(Student.class);
+		Root<Student> root = cq.from(Student.class);
+		cq.select(root);
+		TypedQuery<Student> query = entityManager.createQuery(cq);
+		return query.getResultList();
 	}
 
 	public Student getById(int studentId) {
 		logger.trace("Getting student with id {}", studentId);
-		String sql = "SELECT s.studentId, s.firstName, s.lastName, g.id, g.name " + "FROM students s "
-				+ "LEFT JOIN groups g ON s.group_id = g.id " + "WHERE studentId = ?";
 		Student result;
-		RowMapper<Student> rowMapper = (rs, rowNum) -> {
-			Student student = new Student();
-			student.setStudentId(rs.getInt("studentId"));
-			student.setFirstName(rs.getString("firstName"));
-			student.setLastName(rs.getString("lastName"));
-			Group group = new Group();
-			group.setId(rs.getInt("id"));
-			group.setName(rs.getString("name"));
-			student.setGroup(group);
-			return student;
-		};
 		try {
-			result = jdbcTemplate.queryForObject(sql, rowMapper, studentId);
+			result = entityManager.find(Student.class, studentId);
 		} catch (EmptyResultDataAccessException exception) {
 			String error = String.format("Cannot find student with id '%s'", studentId);
 			logger.error(error);
@@ -91,17 +72,11 @@ public class StudentDao {
 		}
 		return result;
 	}
-
-	public void assignStudentToGroup(int studentId, int groupId) {
-		logger.trace("Assigning student with id {}, to group with id{}", studentId, groupId);
-		String sql = "UPDATE students SET group_id = ? WHERE studentId = ?";
-		jdbcTemplate.update(sql, groupId, studentId);
-	}
 	
+	@Transactional
 	public void update(Student student) {
 		logger.trace("Updating student with id {}", student.getStudentId());
-		String sql = "UPDATE students SET firstName = ?, lastName = ?, group_id = ?  WHERE id = ?";
-		jdbcTemplate.update(sql, student.getFirstName(), student.getLastName(), student.getGroup().getId(), student.getStudentId());
+		entityManager.merge(student);
 	}
 
 }

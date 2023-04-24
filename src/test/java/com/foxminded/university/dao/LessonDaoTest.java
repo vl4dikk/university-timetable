@@ -76,7 +76,6 @@ class LessonDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 		expected.setTeacher(teacher);
 		expected.setTime(time);
 		expected.setName("testLesson123");
-		expected.setLessonId(lessonDao.getAllLessons().size() + 1);
 		lessonDao.insert(expected);
 		Lesson actual = lessonDao.getById(lessonDao.getAllLessons().size());
 		assertEquals(expected, actual);

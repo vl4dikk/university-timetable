@@ -12,8 +12,10 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
+@EnableTransactionManagement
 public class DaoConfig {
 
 	@Value("${spring.datasource.url}")
@@ -36,13 +38,6 @@ public class DaoConfig {
 	
 	@Value("${spring.jpa.properties.hibernate.dialect}")
 	private String dialect;
-
-//	@Bean
-//	public JdbcTemplate jdbcTemplate() {
-//		JdbcTemplate template = new JdbcTemplate();
-//		template.setDataSource(dataSource());
-//		return template;
-//	}
 	
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {

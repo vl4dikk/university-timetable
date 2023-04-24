@@ -4,30 +4,30 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.foxminded.university.exceptions.DAOException;
 import com.foxminded.university.models.Group;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 
 @Repository
 public class GroupDao {
 
 	private static final Logger logger = LoggerFactory.getLogger(GroupDao.class);
 
-	private final JdbcTemplate jdbcTemplate;
+	@PersistenceContext
+	private EntityManager entityManager;
 
-	private BeanPropertyRowMapper<Group> rowMapper = new BeanPropertyRowMapper<>(Group.class);
-
-	@Autowired
-	public GroupDao(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}
-
+	@Transactional
 	public void insert(Group group) {
 		if (group == null) {
 			String error = "Cannot insert group, because its null";
@@ -35,30 +35,35 @@ public class GroupDao {
 			throw new DAOException(error);
 		}
 		logger.trace("Start inserting group with name {}", group.getName());
-		String sql = "INSERT INTO groups (name) VALUES (?)";
-		jdbcTemplate.update(sql, group.getName());
+		entityManager.persist(group);
 		logger.debug("Group with name {} inserted", group.getName());
 	}
 
+	@Transactional
 	public void deleteById(int groupId) {
 		logger.trace("Deleting group with id {}", groupId);
-		String sql = "DELETE FROM groups WHERE id = ?";
-		jdbcTemplate.update(sql, groupId);
-		logger.trace("Group with id {} was deleted", groupId);
+		Group group = entityManager.find(Group.class, groupId);
+		if (group != null) {
+			entityManager.remove(group);
+			logger.trace("Group with id {} was deleted", groupId);
+		}
 	}
 
 	public List<Group> getAllGroups() {
 		logger.trace("Getting all groups");
-		String sql = "SELECT id, name FROM groups";
-		return jdbcTemplate.query(sql, rowMapper);
+		CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Group> cq = cb.createQuery(Group.class);
+		Root<Group> root = cq.from(Group.class);
+		cq.select(root);
+		TypedQuery<Group> query = entityManager.createQuery(cq);
+		return query.getResultList();
 	}
 
 	public Group getGroupById(int groupId) {
 		logger.trace("Getting group with id {}", groupId);
-		String sql = "SELECT id, name FROM groups WHERE id = ?";
 		Group group;
 		try {
-			group = jdbcTemplate.queryForObject(sql, rowMapper, groupId);
+			group = entityManager.find(Group.class, groupId);
 		} catch (EmptyResultDataAccessException exception) {
 			String error = String.format("Cannot find group with id '%s'", groupId);
 			logger.error(error);
@@ -70,11 +75,11 @@ public class GroupDao {
 		}
 		return group;
 	}
-	
+
+	@Transactional
 	public void update(Group group) {
 		logger.trace("Updating group with id {}", group.getId());
-		String sql = "UPDATE groups SET name = ?  WHERE id = ?";
-		jdbcTemplate.update(sql, group.getName(), group.getId());
+		entityManager.merge(group);
 	}
 
 }

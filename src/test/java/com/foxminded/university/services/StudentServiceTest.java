@@ -62,12 +62,6 @@ class StudentServiceTest {
 	}
 
 	@Test
-	void testAssignStudentToGroup() {
-		service.assignStudentToGroup(1, 1);
-		verify(dao, times(1)).assignStudentToGroup(1, 1);
-	}
-	
-	@Test
 	void testUpdate() {
 		Student student = new Student();
 		service.update(student);;

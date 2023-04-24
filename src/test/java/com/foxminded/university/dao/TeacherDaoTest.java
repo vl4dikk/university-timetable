@@ -52,7 +52,6 @@ class TeacherDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 	@Test
 	void testInsertTeacher() {
 		Teacher expected = new Teacher();
-		expected.setTeacherId(teacherDao.getAllTeachers().size() + 1);
 		expected.setFirstName("123");
 		expected.setLastName("321");
 		teacherDao.insert(expected);	
@@ -86,8 +85,9 @@ class TeacherDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 	void testUpdate() {
 		Teacher expected = teacherDao.getAllTeachers().get(1);
 		expected.setFirstName("777777");
+		int teacherId = expected.getTeacherId();
 		teacherDao.update(expected);
-		Teacher actual = teacherDao.getTeacherById(teacherDao.getAllTeachers().get(1).getTeacherId());
+		Teacher actual = teacherDao.getTeacherById(teacherId);
 		assertEquals(expected, actual);
 	}
 

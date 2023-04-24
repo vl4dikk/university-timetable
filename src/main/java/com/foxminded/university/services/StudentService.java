@@ -57,11 +57,6 @@ public class StudentService {
 		logger.info("Started StudentService to get student by id");
 		return dao.getById(studentId);
 	}
-
-	public void assignStudentToGroup(int studentId, int groupId) {
-		logger.info("Started StudentService to assign student to group");
-		dao.assignStudentToGroup(studentId, groupId);
-	}
 	
 	public void update (Student student) {
 		logger.info("Started StudentService to update student");
