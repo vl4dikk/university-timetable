@@ -28,7 +28,7 @@ class TeacherServiceTest {
 	@Test
 	void testInsertStringString() {
 		service.insert("123", "321");
-		verify(dao, times(1)).insert(any(Teacher.class));
+		verify(dao, times(1)).save(any(Teacher.class));
 	}
 
 	@Test
@@ -37,7 +37,7 @@ class TeacherServiceTest {
 		mapMock.put("321", "123");
 		mapMock.put("123", "321");
 		service.insert(mapMock);
-		verify(dao, times(2)).insert(any(Teacher.class));
+		verify(dao, times(2)).save(any(Teacher.class));
 	}
 
 	@Test
@@ -49,20 +49,20 @@ class TeacherServiceTest {
 	@Test
 	void testGetAllTeachers() {
 		service.getAllTeachers();
-		verify(dao, times(1)).getAllTeachers();
+		verify(dao, times(1)).findAll();
 	}
 
 	@Test
 	void testGetTeacherById() {
 		service.getTeacherById(anyInt());
-		verify(dao, times(1)).getTeacherById(anyInt());
+		verify(dao, times(1)).getReferenceById(anyInt());
 	}
-	
+
 	@Test
 	void testUpdate() {
 		Teacher teacher = new Teacher();
-		service.update(teacher);;
-		verify(dao, times(1)).update(any(Teacher.class));;
+		service.update(teacher);
+		verify(dao, times(1)).save(any(Teacher.class));
 	}
 
 }

@@ -16,6 +16,7 @@
 
 		<form action="#" th:action="@{/audiences/updateAudience}"
 			th:object="${audience}" th:method="POST">
+			<input type="hidden" th:field="*{audienceId}" />
 			<div class="form-row">
 				<div class="form-group col-md-2">
 					<label for="audienceNumber">Audience number</label> <input

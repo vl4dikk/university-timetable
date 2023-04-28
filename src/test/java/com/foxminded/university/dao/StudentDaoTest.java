@@ -58,39 +58,39 @@ class StudentDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 		Group group = new Group();
 		group.setId(2);
 		expected.setGroup(group);
-		studentDao.insert(expected);
-		Student actual = studentDao.getById(studentDao.getAllStudents().size());
+		studentDao.save(expected);
+		Student actual = studentDao.getReferenceById(studentDao.findAll().size());
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testDeleteById() {
-		studentDao.deleteById(studentDao.getAllStudents().get(1).getStudentId());
+		studentDao.deleteById(studentDao.findAll().get(1).getStudentId());
 		int expected = 3;
-		int actual = studentDao.getAllStudents().size();
+		int actual = studentDao.findAll().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testGetAllStudents() {
 		int expected = 4;
-		int actual = studentDao.getAllStudents().size();
+		int actual = studentDao.findAll().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testGetById() {
-		Student expected = studentDao.getAllStudents().get(1);
-		Student actual = studentDao.getById(studentDao.getAllStudents().get(1).getStudentId());
+		Student expected = studentDao.findAll().get(1);
+		Student actual = studentDao.getReferenceById(studentDao.findAll().get(1).getStudentId());
 		assertEquals(expected, actual);
 	}
 	
 	@Test
 	void testUpdate() {
-		Student expected = studentDao.getAllStudents().get(1);
+		Student expected = studentDao.findAll().get(1);
 		expected.setFirstName("5555555");
-		studentDao.update(expected);
-		Student actual = studentDao.getById(2);
+		studentDao.save(expected);
+		Student actual = studentDao.getReferenceById(2);
 		assertEquals(expected, actual);
 	}
 

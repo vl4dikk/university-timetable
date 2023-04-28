@@ -76,39 +76,39 @@ class LessonDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 		expected.setTeacher(teacher);
 		expected.setTime(time);
 		expected.setName("testLesson123");
-		lessonDao.insert(expected);
-		Lesson actual = lessonDao.getById(lessonDao.getAllLessons().size());
+		lessonDao.save(expected);
+		Lesson actual = lessonDao.getReferenceById(lessonDao.findAll().size());
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testDeleteById() {
-		lessonDao.deleteById(lessonDao.getAllLessons().get(1).getLessonId());
+		lessonDao.deleteById(lessonDao.findAll().get(1).getLessonId());
 		int expected = 3;
-		int actual = lessonDao.getAllLessons().size();
+		int actual = lessonDao.findAll().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testGetAllLessons() {
 		int expected = 4;
-		int actual = lessonDao.getAllLessons().size();
+		int actual = lessonDao.findAll().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testGetById() {
-		Lesson expected = lessonDao.getAllLessons().get(3);
-		Lesson actual = lessonDao.getById(lessonDao.getAllLessons().get(3).getLessonId());
+		Lesson expected = lessonDao.findAll().get(3);
+		Lesson actual = lessonDao.getReferenceById(lessonDao.findAll().get(3).getLessonId());
 		assertEquals(expected, actual);
 	}
 	
 	@Test
 	void testUpdate() {
-		Lesson expected = lessonDao.getAllLessons().get(3);
+		Lesson expected = lessonDao.findAll().get(3);
 		expected.setName("333333333");
-		lessonDao.update(expected);
-		Lesson actual = lessonDao.getById(lessonDao.getAllLessons().get(3).getLessonId());
+		lessonDao.save(expected);
+		Lesson actual = lessonDao.getReferenceById(lessonDao.findAll().get(3).getLessonId());
 		assertEquals(expected, actual);
 	}
 

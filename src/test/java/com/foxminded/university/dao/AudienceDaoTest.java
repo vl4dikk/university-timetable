@@ -56,41 +56,41 @@ class AudienceDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 	void testInsertAudience() {
 		Audience expected = new Audience();
 		expected.setAudienceNumber(15);
-		audienceDao.insert(expected);
-		Audience actual = audienceDao.getAudienceById(audienceDao.getAllAudiences().size());
+		audienceDao.save(expected);
+		Audience actual = audienceDao.getReferenceById(audienceDao.findAll().size());
 		assertEquals(expected.getAudienceNumber(), actual.getAudienceNumber());
 	}
 
 	@Test
 	void testDeleteById() {
-		List<Audience> audiences = audienceDao.getAllAudiences();
+		List<Audience> audiences = audienceDao.findAll();
 		audienceDao.deleteById(audiences.get(1).getAudienceId());
 		int expected = 3;
-		int actual = audienceDao.getAllAudiences().size();
+		int actual = audienceDao.findAll().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testGetAllAudiences() {
 		int expected = 4;
-		int actual = audienceDao.getAllAudiences().size();
+		int actual = audienceDao.findAll().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testGetAudienceById() {
-		Audience expected = audienceDao.getAllAudiences().get(1);
-		Audience actual = audienceDao.getAudienceById(audienceDao.getAllAudiences().get(1).getAudienceId());
+		Audience expected = audienceDao.findAll().get(1);
+		Audience actual = audienceDao.getReferenceById(audienceDao.findAll().get(1).getAudienceId());
 		assertEquals(expected, actual);
 	}
 	
 	@Test
 	void testupdate() {
-		Audience expected = audienceDao.getAllAudiences().get(1);
-		int audienceId = audienceDao.getAllAudiences().get(1).getAudienceId();
+		Audience expected = audienceDao.findAll().get(1);
+		int audienceId = expected.getAudienceId();
 		expected.setAudienceNumber(55);
-		audienceDao.update(expected);
-		Audience actual = audienceDao.getAudienceById(audienceId);
+		audienceDao.save(expected);
+		Audience actual = audienceDao.getReferenceById(audienceId);
 		assertEquals(expected, actual);
 	}
 

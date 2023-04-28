@@ -31,7 +31,7 @@
 						th:field="*{lastName}">
 				</div>
 				<div class="form-group col-md-2">
-					<label for="groupSelect">Group</label> <select class="form-control">
+					<label for="groupSelect">Group</label> <select class="form-control" th:field="*{group.id}">
 						<option th:each="group : ${groups}" th:value="${group.id}"
 							th:selected="(${group.id} == *{group.id})" th:text="${group.name}" /></option>
 					</select>

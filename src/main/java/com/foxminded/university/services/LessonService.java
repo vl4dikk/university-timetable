@@ -16,7 +16,7 @@ import com.foxminded.university.models.Teacher;
 
 @Service
 public class LessonService {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(LessonService.class);
 
 	private LessonDao dao;
@@ -40,7 +40,7 @@ public class LessonService {
 		audience.setAudienceId(audienceId);
 		lesson.setAudience(audience);
 		lesson.setTime(time);
-		dao.insert(lesson);
+		dao.save(lesson);
 		logger.info("Lesson inserted");
 	}
 
@@ -51,15 +51,15 @@ public class LessonService {
 
 	public List<Lesson> getAllLessons() {
 		logger.info("Started LessonService to get all lessons");
-		return dao.getAllLessons();
+		return dao.findAll();
 	}
 
 	public Lesson getById(int lessonId) {
 		logger.info("Started LessonService to get lesson by id");
-		return dao.getById(lessonId);
+		return dao.getReferenceById(lessonId);
 	}
-	
+
 	public void update(Lesson lesson) {
-		dao.update(lesson);
+		dao.save(lesson);
 	}
 }

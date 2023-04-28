@@ -6,11 +6,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.foxminded.university.dao.AudienceDao;
 import com.foxminded.university.models.Audience;
 
 @Service
+@Transactional
 public class AudienceService {
 
 	private static final Logger logger = LoggerFactory.getLogger(AudienceService.class);
@@ -26,7 +28,7 @@ public class AudienceService {
 		logger.info("Started AudienceService to insert audience");
 		Audience audience = new Audience();
 		audience.setAudienceNumber(audienceNumber);
-		dao.insert(audience);
+		dao.save(audience);
 		logger.info("Audience inserted");
 	}
 
@@ -35,7 +37,7 @@ public class AudienceService {
 		for (int audienceNumber : audienceNumbers) {
 			Audience audience = new Audience();
 			audience.setAudienceNumber(audienceNumber);
-			dao.insert(audience);
+			dao.save(audience);
 		}
 	}
 
@@ -46,15 +48,15 @@ public class AudienceService {
 
 	public List<Audience> getAllAudiences() {
 		logger.info("Started AudienceService to get all audiences");
-		return dao.getAllAudiences();
+		return dao.findAll();
 	}
 
 	public Audience getAudienceById(int audienceId) {
 		logger.info("Started AudienceService to get audience by id {}", audienceId);
-		return dao.getAudienceById(audienceId);
+		return dao.getReferenceById(audienceId);
 	}
-	
+
 	public void update(Audience audience) {
-		dao.update(audience);
+		dao.save(audience);
 	}
 }

@@ -28,7 +28,7 @@ class LessonServiceTest {
 	@Test
 	void testInsertStringIntIntIntLocalDateTime() {
 		service.insert("123", 1, 2, 3, LocalDateTime.now());
-		verify(dao, times(1)).insert(any(Lesson.class));
+		verify(dao, times(1)).save(any(Lesson.class));
 	}
 
 	@Test
@@ -40,20 +40,20 @@ class LessonServiceTest {
 	@Test
 	void testGetAllLessons() {
 		service.getAllLessons();
-		verify(dao, times(1)).getAllLessons();
+		verify(dao, times(1)).findAll();
 	}
 
 	@Test
 	void testGetById() {
 		service.getById(anyInt());
-		verify(dao, times(1)).getById(anyInt());
+		verify(dao, times(1)).getReferenceById(anyInt());
 	}
-	
+
 	@Test
 	void testUpdate() {
 		Lesson lesson = new Lesson();
-		service.update(lesson);;
-		verify(dao, times(1)).update(any(Lesson.class));;
+		service.update(lesson);
+		verify(dao, times(1)).save(any(Lesson.class));
 	}
 
 }

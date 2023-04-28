@@ -55,41 +55,41 @@ class GroupDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 	void testInsertGroup() {
 		Group expected = new Group();
 		expected.setName("DaoTest321");
-		groupDao.insert(expected);
-		Group actual = groupDao.getGroupById(groupDao.getAllGroups().size());
+		groupDao.save(expected);
+		Group actual = groupDao.getReferenceById(groupDao.findAll().size());
 		assertEquals(expected.getName(), actual.getName());
 	}
 
 	@Test
 	void testDeleteById() {
-		List<Group> groups = groupDao.getAllGroups();
+		List<Group> groups = groupDao.findAll();
 		groupDao.deleteById(groups.get(1).getId());
 		int expected = 3;
-		int actual = groupDao.getAllGroups().size();
+		int actual = groupDao.findAll().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testGetAllGroups() {
 		int expected = 4;
-		int actual = groupDao.getAllGroups().size();
+		int actual = groupDao.findAll().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testGetGroupById() {
-		Group expected = groupDao.getAllGroups().get(1);
-		Group actual = groupDao.getGroupById(groupDao.getAllGroups().get(1).getId());
+		Group expected = groupDao.findAll().get(1);
+		Group actual = groupDao.getReferenceById(groupDao.findAll().get(1).getId());
 		assertEquals(expected, actual);
 	}
 	
 	@Test
 	void testupdate() {
-		Group expected = groupDao.getAllGroups().get(1);
-		int groupId = groupDao.getAllGroups().get(1).getId();
+		Group expected = groupDao.findAll().get(1);
+		int groupId = groupDao.findAll().get(1).getId();
 		expected.setName("33333");
-		groupDao.update(expected);
-		Group actual = groupDao.getGroupById(groupId);
+		groupDao.save(expected);
+		Group actual = groupDao.getReferenceById(groupId);
 		assertEquals(expected, actual);
 	}
 

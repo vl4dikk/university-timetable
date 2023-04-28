@@ -54,40 +54,40 @@ class TeacherDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 		Teacher expected = new Teacher();
 		expected.setFirstName("123");
 		expected.setLastName("321");
-		teacherDao.insert(expected);	
-		Teacher actual = teacherDao.getTeacherById(teacherDao.getAllTeachers().size());
+		teacherDao.save(expected);	
+		Teacher actual = teacherDao.getReferenceById(teacherDao.findAll().size());
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testDeleteById() {
-		teacherDao.deleteById(teacherDao.getAllTeachers().get(1).getTeacherId());
+		teacherDao.deleteById(teacherDao.findAll().get(1).getTeacherId());
 		int expected = 3;
-		int actual = teacherDao.getAllTeachers().size();
+		int actual = teacherDao.findAll().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testGetAllGroups() {
 		int expected = 4;
-		int actual = teacherDao.getAllTeachers().size();
+		int actual = teacherDao.findAll().size();
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testGetTeacherById() {
-		Teacher expected = teacherDao.getAllTeachers().get(1);
-		Teacher actual = teacherDao.getTeacherById(teacherDao.getAllTeachers().get(1).getTeacherId());
+		Teacher expected = teacherDao.findAll().get(1);
+		Teacher actual = teacherDao.getReferenceById(teacherDao.findAll().get(1).getTeacherId());
 		assertEquals(expected, actual);
 	}
 	
 	@Test
 	void testUpdate() {
-		Teacher expected = teacherDao.getAllTeachers().get(1);
+		Teacher expected = teacherDao.findAll().get(1);
 		expected.setFirstName("777777");
 		int teacherId = expected.getTeacherId();
-		teacherDao.update(expected);
-		Teacher actual = teacherDao.getTeacherById(teacherId);
+		teacherDao.save(expected);
+		Teacher actual = teacherDao.getReferenceById(teacherId);
 		assertEquals(expected, actual);
 	}
 

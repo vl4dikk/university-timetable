@@ -26,7 +26,7 @@ public class GroupService {
 		logger.info("Started GroupService to insert group");
 		Group group = new Group();
 		group.setName(name);
-		dao.insert(group);
+		dao.save(group);
 		logger.info("Group inserted");
 	}
 
@@ -35,7 +35,7 @@ public class GroupService {
 		for (String name : names) {
 			Group group = new Group();
 			group.setName(name);
-			dao.insert(group);
+			dao.save(group);
 			logger.info("Group inserted");
 		}
 	}
@@ -47,16 +47,16 @@ public class GroupService {
 
 	public List<Group> getAllGroups() {
 		logger.info("Started GroupService to get all groups");
-		return dao.getAllGroups();
+		return dao.findAll();
 	}
 
 	public Group getGroupById(int groupId) {
 		logger.info("Started GroupService to get group by id");
-		return dao.getGroupById(groupId);
+		return dao.getReferenceById(groupId);
 	}
-	
-	public void update (Group group) {
+
+	public void update(Group group) {
 		logger.info("Started GroupService to update group");
-		dao.update(group);
+		dao.save(group);
 	}
 }

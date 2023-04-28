@@ -30,7 +30,7 @@ class GroupServiceTest {
 	@Test
 	void testInsert() {
 		service.insert(anyString());
-		verify(dao, times(1)).insert(any(Group.class));
+		verify(dao, times(1)).save(any(Group.class));
 	}
 
 	@Test
@@ -39,7 +39,7 @@ class GroupServiceTest {
 		test.add("123");
 		test.add("321");
 		service.insert(test);
-		verify(dao, times(2)).insert(any(Group.class));
+		verify(dao, times(2)).save(any(Group.class));
 	}
 
 	@Test
@@ -51,20 +51,20 @@ class GroupServiceTest {
 	@Test
 	void testGetAllGroups() {
 		service.getAllGroups();
-		verify(dao, times(1)).getAllGroups();
+		verify(dao, times(1)).findAll();
 	}
 
 	@Test
 	void testGetGroupById() {
 		service.getGroupById(anyInt());
-		verify(dao, times(1)).getGroupById(anyInt());
+		verify(dao, times(1)).getReferenceById(anyInt());
 	}
-	
+
 	@Test
 	void testUpdate() {
 		Group group = new Group();
-		service.update(group);;
-		verify(dao, times(1)).update(any(Group.class));;
+		service.update(group);
+		verify(dao, times(1)).save(any(Group.class));
 	}
 
 }

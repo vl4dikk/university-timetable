@@ -29,7 +29,7 @@ class AudienceServiceTest {
 	@Test
 	void testInsertInt() {
 		service.insert(anyInt());
-		verify(dao, times(1)).insert(any(Audience.class));
+		verify(dao, times(1)).save(any(Audience.class));
 	}
 
 	@Test
@@ -38,7 +38,7 @@ class AudienceServiceTest {
 		test.add(3);
 		test.add(5);
 		service.insert(test);
-		verify(dao, times(2)).insert(any(Audience.class));
+		verify(dao, times(2)).save(any(Audience.class));
 	}
 
 	@Test
@@ -50,20 +50,20 @@ class AudienceServiceTest {
 	@Test
 	void testGetAllAudiences() {
 		service.getAllAudiences();
-		verify(dao, times(1)).getAllAudiences();
+		verify(dao, times(1)).findAll();
 	}
 
 	@Test
 	void testGetAudienceById() {
 		service.getAudienceById(anyInt());
-		verify(dao, times(1)).getAudienceById(anyInt());
+		verify(dao, times(1)).getReferenceById(anyInt());
 	}
-	
+
 	@Test
 	void testUpdate() {
 		Audience audience = new Audience();
 		service.update(audience);
-		verify(dao, times(1)).update(any(Audience.class));
+		verify(dao, times(1)).save(any(Audience.class));
 	}
 
 }
