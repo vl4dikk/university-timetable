@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.foxminded.university.models.Audience;
 import com.foxminded.university.services.AudienceService;
 
+import jakarta.validation.Valid;
+
 @Controller
 @RequestMapping("/audiences")
 public class AudienceController {
@@ -49,7 +51,7 @@ public class AudienceController {
 	}
 
 	@PostMapping("/insertAudience")
-	public String insertAudience(@ModelAttribute("audience") Audience audience) {
+	public String insertAudience(@ModelAttribute("audience") @Valid Audience audience) {
 		service.insert(audience.getAudienceNumber());
 		return "redirect:/audiences/getAllAudiences";
 	}
@@ -68,7 +70,7 @@ public class AudienceController {
 	}
 
 	@PostMapping("/updateAudience")
-	public String updateAudience(@ModelAttribute("audience") Audience audience) {
+	public String updateAudience(@ModelAttribute("audience") @Valid Audience audience) {
 		service.update(audience);
 		return "redirect:/audiences/getAllAudiences";
 	}

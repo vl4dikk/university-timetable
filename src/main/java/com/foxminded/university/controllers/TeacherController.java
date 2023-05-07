@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.foxminded.university.models.Teacher;
 import com.foxminded.university.services.TeacherService;
 
+import jakarta.validation.Valid;
+
 @Controller
 @RequestMapping("/teachers")
 public class TeacherController {
@@ -42,7 +44,7 @@ public class TeacherController {
 	}
 
 	@PostMapping("/insertTeacher")
-	public String insertStudent(@ModelAttribute("teacher") Teacher teacher) {
+	public String insertStudent(@ModelAttribute("teacher") @Valid Teacher teacher) {
 		service.insert(teacher.getFirstName(), teacher.getLastName());
 		return "redirect:/teachers/getAllTeachers";
 	}
@@ -55,7 +57,7 @@ public class TeacherController {
 	}
 
 	@PostMapping("/updateTeacher")
-	public String updateStudent(@ModelAttribute("teacher") Teacher teacher) {
+	public String updateStudent(@ModelAttribute("teacher") @Valid Teacher teacher) {
 		service.update(teacher);
 		return "redirect:/teachers/getAllTeachers";
 	}

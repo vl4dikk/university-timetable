@@ -20,6 +20,8 @@ import com.foxminded.university.services.GroupService;
 import com.foxminded.university.services.LessonService;
 import com.foxminded.university.services.TeacherService;
 
+import jakarta.validation.Valid;
+
 @Controller
 @RequestMapping("/lessons")
 public class LessonController {
@@ -60,7 +62,7 @@ public class LessonController {
 	}
 
 	@PostMapping("/insertLesson")
-	public String insertLesson(@ModelAttribute("lesson") Lesson lesson) {
+	public String insertLesson(@ModelAttribute("lesson") @Valid Lesson lesson) {
 		service.insert(lesson.getName(), lesson.getTeacher().getTeacherId(), lesson.getGroup().getId(),
 				lesson.getAudience().getAudienceId(), lesson.getTime());
 		return "redirect:/lessons/getAllLessons";
@@ -80,7 +82,7 @@ public class LessonController {
 	}
 
 	@PostMapping("/updateLesson")
-	public String updateLesson(@ModelAttribute("lesson") Lesson lesson) {
+	public String updateLesson(@ModelAttribute("lesson") @Valid Lesson lesson) {
 		service.update(lesson);
 		return "redirect:/lessons/getAllLessons";
 	}

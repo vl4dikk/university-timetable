@@ -103,6 +103,9 @@ class TeacherControllerTest {
 	@Test
 	void testUpdateTeacher() throws Exception {
 		Teacher teacher = new Teacher();
+		teacher.setFirstName("123");
+		teacher.setLastName("321");
+		teacher.setEmail("123@gmail.com");
 
 		Mockito.doNothing().when(service).update(Mockito.any(Teacher.class));
 

@@ -10,6 +10,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
@@ -22,6 +24,7 @@ public class Lesson {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int lessonId;
 	@Column(name = "name")
+	@NotBlank
 	private String name;
 	@OneToOne
 	@JoinColumn(name = "teacher_id")
@@ -33,6 +36,7 @@ public class Lesson {
 	@JoinColumn(name = "audience_id")
 	private Audience audience;
 	@Column(name = "ltime")
+	@NotNull
 	private LocalDateTime time;
 
 }

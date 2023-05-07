@@ -16,6 +16,8 @@ import com.foxminded.university.models.Student;
 import com.foxminded.university.services.GroupService;
 import com.foxminded.university.services.StudentService;
 
+import jakarta.validation.Valid;
+
 @Controller
 @RequestMapping("/students")
 public class StudentController {
@@ -48,7 +50,7 @@ public class StudentController {
 	}
 	
 	@PostMapping("/insertStudent")
-	public String insertStudent(@ModelAttribute("student") Student student) {
+	public String insertStudent(@ModelAttribute("student") @Valid Student student) {
 			service.insert(student);
 		return "redirect:/students/getAllStudents";
 	}
@@ -63,7 +65,7 @@ public class StudentController {
 	}
 	
 	@PostMapping("/updateStudent")
-	public String updateStudent(@ModelAttribute("student") Student student) {
+	public String updateStudent(@ModelAttribute("student") @Valid Student student) {
 		service.update(student);
 		return "redirect:/students/getAllStudents";
 	}

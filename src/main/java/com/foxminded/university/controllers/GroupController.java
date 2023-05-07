@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.foxminded.university.models.Group;
 import com.foxminded.university.services.GroupService;
 
+import jakarta.validation.Valid;
+
 @Controller
 @RequestMapping("/groups")
 public class GroupController {
@@ -42,7 +44,7 @@ public class GroupController {
 	}
 	
 	@PostMapping("/insertGroup")
-	public String insertGroup(@ModelAttribute("group") Group group) {
+	public String insertGroup(@ModelAttribute("group") @Valid Group group) {
 		service.insert(group.getName());
 		return "redirect:/groups/getAllGroups";
 	}
@@ -55,7 +57,7 @@ public class GroupController {
 	}
 	
 	@PostMapping("/updateGroup")
-	public String updateGroup(@ModelAttribute("group") Group group) {
+	public String updateGroup(@ModelAttribute("group") @Valid Group group) {
 		service.update(group);
 		return "redirect:/groups/getAllGroups";
 	}
