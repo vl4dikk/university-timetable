@@ -83,6 +83,12 @@ class StudentControllerTest {
 	@Test
 	void testInsertStudent() throws Exception {
 		Student student = new Student();
+		student.setFirstName("123");
+		student.setLastName("321");
+		Group group = new Group();
+		group.setId(1);
+		group.setName("123321");
+		student.setGroup(group);
 
 		Mockito.doNothing().when(service).insert(any(Student.class));
 
@@ -125,6 +131,36 @@ class StudentControllerTest {
 				.andExpect(status().is3xxRedirection()).andExpect(redirectedUrl("/students/getAllStudents"));
 
 		Mockito.verify(service).update(student);
+	}
+
+	@Test
+	void testUpdateStudentWithBlankFirstNameField() throws Exception {
+		Student student = new Student();
+		student.setFirstName("");
+		student.setLastName("321");
+		Group group = new Group();
+		group.setId(1);
+		group.setName("123321");
+		student.setGroup(group);
+
+		mockMvc.perform(post("/students/updateStudent").flashAttr("student", student))
+				.andExpect(status().isBadRequest());
+
+	}
+
+	@Test
+	void testInsertStudentWithBlankLastName() throws Exception {
+		Student student = new Student();
+		student.setFirstName("123");
+		student.setLastName("");
+		Group group = new Group();
+		group.setId(1);
+		group.setName("123321");
+		student.setGroup(group);
+
+		mockMvc.perform(post("/students/insertStudent").flashAttr("student", student))
+				.andExpect(status().isBadRequest());
+
 	}
 
 }

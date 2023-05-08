@@ -115,4 +115,28 @@ class TeacherControllerTest {
 		Mockito.verify(service).update(teacher);
 	}
 
+	@Test
+	void testInsertTeacherWithNotValidEmail() throws Exception {
+		Teacher teacher = new Teacher();
+		teacher.setFirstName("123");
+		teacher.setLastName("123");
+		teacher.setEmail("123@gmail");
+
+		mockMvc.perform(post("/teachers/insertTeacher").flashAttr("teacher", teacher))
+				.andExpect(status().isBadRequest());
+
+	}
+
+	@Test
+	void testUpdateTeacherWithNotValidEmail() throws Exception {
+		Teacher teacher = new Teacher();
+		teacher.setFirstName("123");
+		teacher.setLastName("321");
+		teacher.setEmail("123@gmail");
+
+		mockMvc.perform(post("/teachers/updateTeacher").flashAttr("teacher", teacher))
+				.andExpect(status().isBadRequest());
+
+	}
+
 }

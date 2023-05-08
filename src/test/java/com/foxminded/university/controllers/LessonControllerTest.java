@@ -160,7 +160,7 @@ class LessonControllerTest {
 	}
 
 	@Test
-	void testUpdateAudience() throws Exception {
+	void testUpdateLesson() throws Exception {
 		Lesson lesson = new Lesson();
 		lesson.setName("123");
 		Teacher teacher = new Teacher();
@@ -181,6 +181,43 @@ class LessonControllerTest {
 				.andExpect(status().is3xxRedirection()).andExpect(redirectedUrl("/lessons/getAllLessons"));
 
 		Mockito.verify(service).update(lesson);
+	}
+
+	@Test
+	void testUpdateLessonWithBlankName() throws Exception {
+		Lesson lesson = new Lesson();
+		lesson.setName("");
+		Teacher teacher = new Teacher();
+		teacher.setTeacherId(1);
+		lesson.setTeacher(teacher);
+		Group group = new Group();
+		group.setId(1);
+		lesson.setGroup(group);
+		Audience audience = new Audience();
+		audience.setAudienceId(1);
+		lesson.setAudience(audience);
+		LocalDateTime time = LocalDateTime.of(2023, 4, 15, 10, 0);
+		lesson.setTime(time);
+
+		mockMvc.perform(post("/lessons/updateLesson").flashAttr("lesson", lesson)).andExpect(status().isBadRequest());
+	}
+
+	@Test
+	void testInsertLessonWithNullTime() throws Exception {
+		Lesson lesson = new Lesson();
+		lesson.setName("123");
+		Teacher teacher = new Teacher();
+		teacher.setTeacherId(1);
+		lesson.setTeacher(teacher);
+		Group group = new Group();
+		group.setId(1);
+		lesson.setGroup(group);
+		Audience audience = new Audience();
+		audience.setAudienceId(1);
+		lesson.setAudience(audience);
+		lesson.setTime(null);
+
+		mockMvc.perform(post("/lessons/insertLesson").flashAttr("lesson", lesson)).andExpect(status().isBadRequest());
 	}
 
 }

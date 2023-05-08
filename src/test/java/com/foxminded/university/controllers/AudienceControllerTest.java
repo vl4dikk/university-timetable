@@ -118,4 +118,21 @@ class AudienceControllerTest {
 		Mockito.verify(service).update(audience);
 	}
 
+	@Test
+	void testInsertAudienceWithAudienceNumberLessThanOne() throws Exception {
+		Audience audience = new Audience();
+		audience.setAudienceNumber(0);
+
+		mockMvc.perform(post("/audiences/insertAudience")).andExpect(status().isBadRequest());
+	}
+
+	@Test
+	void testUpdateAudienceWithAudienceNumberLessThanOne() throws Exception {
+		Audience audience = new Audience();
+		audience.setAudienceNumber(-123456);
+
+		mockMvc.perform(post("/audiences/updateAudience").flashAttr("audience", audience))
+				.andExpect(status().isBadRequest());
+	}
+
 }

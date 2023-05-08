@@ -6,7 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Min;
 import lombok.Data;
 
 @Data
@@ -19,7 +19,7 @@ public class Audience {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int audienceId;
 	@Column(name = "audiencenumber", nullable = true, unique = true)
-	@NotNull
+	@Min(value = 1)
 	private int audienceNumber;
 
 }

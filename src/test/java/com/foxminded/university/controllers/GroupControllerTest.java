@@ -100,7 +100,7 @@ class GroupControllerTest {
 	}
 
 	@Test
-	void testUpdateAudience() throws Exception {
+	void testUpdateGroup() throws Exception {
 		Group group = new Group();
 		group.setName("123");
 
@@ -110,6 +110,22 @@ class GroupControllerTest {
 				.andExpect(redirectedUrl("/groups/getAllGroups"));
 
 		Mockito.verify(service).update(group);
+	}
+
+	@Test
+	void testUpdateGroupWithBlankName() throws Exception {
+		Group group = new Group();
+		group.setName("");
+
+		mockMvc.perform(post("/groups/updateGroup").flashAttr("group", group)).andExpect(status().isBadRequest());
+	}
+
+	@Test
+	void testInsertGroupWithBlankName() throws Exception {
+		Group group = new Group();
+		group.setName("");
+
+		mockMvc.perform(post("/groups/insertGroup").flashAttr("group", group)).andExpect(status().isBadRequest());
 	}
 
 }

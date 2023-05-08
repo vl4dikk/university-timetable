@@ -6,11 +6,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 
 import com.foxminded.university.models.Audience;
 import com.foxminded.university.services.AudienceService;
@@ -51,7 +54,10 @@ public class AudienceController {
 	}
 
 	@PostMapping("/insertAudience")
-	public String insertAudience(@ModelAttribute("audience") @Valid Audience audience) {
+	public String insertAudience(@ModelAttribute("audience") @Valid Audience audience, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Validation exception");
+		}
 		service.insert(audience.getAudienceNumber());
 		return "redirect:/audiences/getAllAudiences";
 	}
