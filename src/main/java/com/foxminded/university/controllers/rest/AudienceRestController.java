@@ -1,9 +1,14 @@
 package com.foxminded.university.controllers.rest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.Link;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,31 +31,54 @@ public class AudienceRestController {
 	private AudienceService service;
 
 	@GetMapping
-	public List<Audience> getAllAudiences() {
-		return service.getAllAudiences();
+	public ResponseEntity<CollectionModel<EntityModel<Audience>>> getAllAudiences() {
+		List<Audience> audiences = service.getAllAudiences();
+		List<EntityModel<Audience>> audienceModels = new ArrayList<EntityModel<Audience>>();
+		for (Audience audience : audiences) {
+			EntityModel<Audience> audienceModel = EntityModel.of(audience);
+			Link selfLink = WebMvcLinkBuilder.linkTo(
+					WebMvcLinkBuilder.methodOn(AudienceRestController.class).getAudienceById(audience.getAudienceId()))
+					.withSelfRel();
+			audienceModel.add(selfLink);
+			audienceModels.add(audienceModel);
+		}
+		CollectionModel<EntityModel<Audience>> collectionModel = CollectionModel.of(audienceModels);
+		return ResponseEntity.ok(collectionModel);
 	}
 
-	@PostMapping("/add")
-	public Audience addAudience(@RequestBody @Valid Audience audience, BindingResult bindingResult) {
+	@PostMapping
+	public ResponseEntity<Void> addAudience(@RequestBody @Valid Audience audience) {
 		service.insert(audience.getAudienceNumber());
-		return audience;
+		return ResponseEntity.ok().build();
 	}
 
 	@GetMapping("/{id}")
-	public Audience getAudienceById(@PathVariable("id") int id) {
-
-		return service.getAudienceById(id);
+	public ResponseEntity<EntityModel<Audience>> getAudienceById(@PathVariable("id") int id) {
+		Audience audience = service.getAudienceById(id);
+		if (audience == null) {
+			return ResponseEntity.notFound().build();
+		}
+		EntityModel<Audience> audienceModel = EntityModel.of(audience);
+		Link selfLink = WebMvcLinkBuilder
+				.linkTo(WebMvcLinkBuilder.methodOn(AudienceRestController.class).getAudienceById(id)).withSelfRel();
+		audienceModel.add(selfLink);
+		return ResponseEntity.ok(audienceModel);
 	}
 
 	@PutMapping("/{id}")
-	public Audience updateAudience(@PathVariable("id") int id, @RequestBody @Valid Audience audience,
-			BindingResult bindingResult) {
+	public ResponseEntity<EntityModel<Audience>> updateAudience(@PathVariable("id") int id,
+			@RequestBody @Valid Audience audience) {
 		service.update(audience);
-		return audience;
+		EntityModel<Audience> audienceModel = EntityModel.of(audience);
+		Link selfLink = WebMvcLinkBuilder
+				.linkTo(WebMvcLinkBuilder.methodOn(AudienceRestController.class).getAudienceById(id)).withSelfRel();
+		audienceModel.add(selfLink);
+		return ResponseEntity.ok(audienceModel);
 	}
 
 	@DeleteMapping("/{id}")
-	public void deleteAudience(@PathVariable("id") int id) {
+	public ResponseEntity<Void> deleteAudience(@PathVariable("id") int id) {
 		service.deleteById(id);
+		return ResponseEntity.noContent().build();
 	}
 }
