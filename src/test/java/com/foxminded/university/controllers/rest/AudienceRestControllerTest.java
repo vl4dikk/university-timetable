@@ -69,8 +69,7 @@ class AudienceRestControllerTest {
 
 		mockMvc.perform(get("/api/audiences/1")).andExpect(status().isOk())
 				.andExpect(content().contentType(MediaType.parseMediaType("application/hal+json")))
-				.andExpect(jsonPath("$.audienceId").value(1))
-				.andExpect(jsonPath("$.audienceNumber").exists())
+				.andExpect(jsonPath("$.audienceId").value(1)).andExpect(jsonPath("$.audienceNumber").exists())
 				.andExpect(jsonPath("$._links.self.href").exists());
 	}
 
