@@ -21,16 +21,22 @@ import org.springframework.web.bind.annotation.RestController;
 import com.foxminded.university.models.Audience;
 import com.foxminded.university.services.AudienceService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/audiences")
+@Tag(description = "Audiences controller", name = "Audiences")
 public class AudienceRestController {
 
 	@Autowired
 	private AudienceService service;
 
 	@GetMapping
+	@Operation(summary ="Get all audiences", description = "")
 	public ResponseEntity<CollectionModel<EntityModel<Audience>>> getAllAudiences() {
 		List<Audience> audiences = service.getAllAudiences();
 		List<EntityModel<Audience>> audienceModels = new ArrayList<EntityModel<Audience>>();
@@ -47,12 +53,18 @@ public class AudienceRestController {
 	}
 
 	@PostMapping
+	@Operation(summary = "Add new audience")
 	public ResponseEntity<Void> addAudience(@RequestBody @Valid Audience audience) {
 		service.insert(audience.getAudienceNumber());
 		return ResponseEntity.ok().build();
 	}
 
 	@GetMapping("/{id}")
+	 @Operation(description = "Get an audience by ID")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Success"),
+            @ApiResponse(responseCode = "404", description = "Audience not found")
+    })
 	public ResponseEntity<EntityModel<Audience>> getAudienceById(@PathVariable("id") int id) {
 		Audience audience = service.getAudienceById(id);
 		if (audience == null) {
@@ -66,6 +78,7 @@ public class AudienceRestController {
 	}
 
 	@PutMapping("/{id}")
+    @Operation(description = "Update an existing audience")
 	public ResponseEntity<EntityModel<Audience>> updateAudience(@PathVariable("id") int id,
 			@RequestBody @Valid Audience audience) {
 		service.update(audience);
@@ -77,6 +90,7 @@ public class AudienceRestController {
 	}
 
 	@DeleteMapping("/{id}")
+	@Operation(description = "Delete an audience")
 	public ResponseEntity<Void> deleteAudience(@PathVariable("id") int id) {
 		service.deleteById(id);
 		return ResponseEntity.noContent().build();
