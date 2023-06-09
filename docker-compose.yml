@@ -27,3 +27,17 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+      
+  keycloak:
+    image: quay.io/keycloak/keycloak:21.1.1
+    restart: always
+    volumes:
+      - .local/keycloak/:/opt/jboss/keycloak/standalone/data/
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=password
+    ports:
+      - "8081:8080"
+    command:
+      - start-dev   
+      
