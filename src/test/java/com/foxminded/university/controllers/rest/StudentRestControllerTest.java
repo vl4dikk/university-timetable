@@ -14,6 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithAnonymousUser;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -33,6 +36,7 @@ class StudentRestControllerTest {
 	private StudentService studentService;
 	
 	@Test
+	@WithMockUser
 	void testGetAllStudents() throws Exception {
 		Student student1 = new Student();
 		Student student2 = new Student();
@@ -63,6 +67,7 @@ class StudentRestControllerTest {
 	}
 
 	@Test
+	@WithMockUser
 	void testAddStudent() throws JsonProcessingException, Exception {
 		ObjectMapper objectMapper = new ObjectMapper();
 		
@@ -74,6 +79,7 @@ class StudentRestControllerTest {
 		student.setGroup(group);
 		
         mockMvc.perform(post("/api/students")
+				.with(SecurityMockMvcRequestPostProcessors.csrf())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(student)))
                 .andExpect(status().isOk());
@@ -83,6 +89,7 @@ class StudentRestControllerTest {
 	}
 
 	@Test
+	@WithMockUser
 	void testGetStudentById() throws Exception {
 		Student student = new Student();
 		student.setStudentId(1);
@@ -104,6 +111,7 @@ class StudentRestControllerTest {
 	}
 
 	@Test
+	@WithMockUser
 	void testUpdateStudent() throws JsonProcessingException, Exception {
 		ObjectMapper objectMapper = new ObjectMapper();
 
@@ -115,7 +123,7 @@ class StudentRestControllerTest {
 		group.setId(1);
 		student.setGroup(group);
 
-		mockMvc.perform(put("/api/students/1").contentType(MediaType.APPLICATION_JSON)
+		mockMvc.perform(put("/api/students/1").with(SecurityMockMvcRequestPostProcessors.csrf()).contentType(MediaType.APPLICATION_JSON)
 				.content(objectMapper.writeValueAsString(student))).andExpect(status().isOk());
 
 		Mockito.verify(studentService, Mockito.times(1)).update(student);
@@ -123,8 +131,15 @@ class StudentRestControllerTest {
 	}
 
 	@Test
+	@WithMockUser
 	void testDeleteStudent() throws Exception {
-		mockMvc.perform(delete("/api/students/1")).andExpect(status().isNoContent());
+		mockMvc.perform(delete("/api/students/1").with(SecurityMockMvcRequestPostProcessors.csrf())).andExpect(status().isNoContent());
+	}
+	
+	@Test
+	@WithAnonymousUser
+	void cannotGetStudentIfNotAuthorized() throws Exception {
+		mockMvc.perform(get("/api/students/{id}", 1)).andExpect(status().isUnauthorized());
 	}
 
 }

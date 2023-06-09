@@ -19,6 +19,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithAnonymousUser;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.foxminded.university.models.Group;
@@ -35,6 +38,7 @@ class GroupRestControllerTest {
 	private GroupService groupService;
 
 	@Test
+	@WithMockUser
 	void testGetAllGroups() throws Exception {
 		Group group1 = new Group();
 		Group group2 = new Group();
@@ -57,14 +61,16 @@ class GroupRestControllerTest {
 	}
 
 	@Test
+	@WithMockUser
 	void testAddGroup() throws Exception {
 
-		mockMvc.perform(post("/api/groups").contentType(MediaType.APPLICATION_JSON).content("{\"name\":123}"))
+		mockMvc.perform(post("/api/groups").with(SecurityMockMvcRequestPostProcessors.csrf()).contentType(MediaType.APPLICATION_JSON).content("{\"name\":123}"))
 				.andExpect(status().isOk());
 
 	}
 
 	@Test
+	@WithMockUser
 	void testGetGroupById() throws Exception {
 		Group group = new Group();
 		group.setId(1);
@@ -79,14 +85,22 @@ class GroupRestControllerTest {
 	}
 
 	@Test
+	@WithMockUser
 	void testUpdateGroup() throws Exception {
-		mockMvc.perform(put("/api/groups/1").contentType(MediaType.APPLICATION_JSON).content("{\"id\":1,\"name\":123}"))
+		mockMvc.perform(put("/api/groups/1").with(SecurityMockMvcRequestPostProcessors.csrf()).contentType(MediaType.APPLICATION_JSON).content("{\"id\":1,\"name\":123}"))
 				.andExpect(status().isOk()).andExpect(content().json("{\"id\":1,\"name\":'123'}"));
 	}
 
 	@Test
+	@WithMockUser
 	void testDeleteGroup() throws Exception {
-		mockMvc.perform(delete("/api/groups/1")).andExpect(status().isNoContent());
+		mockMvc.perform(delete("/api/groups/1").with(SecurityMockMvcRequestPostProcessors.csrf())).andExpect(status().isNoContent());
+	}
+	
+	@Test
+	@WithAnonymousUser
+	void cannotGetGroupIfNotAuthorized() throws Exception {
+		mockMvc.perform(get("/api/groups/{id}", 1)).andExpect(status().isUnauthorized());
 	}
 
 }

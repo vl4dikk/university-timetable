@@ -15,6 +15,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.security.test.context.support.WithAnonymousUser;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
 
 import com.foxminded.university.models.Audience;
 import com.foxminded.university.services.AudienceService;
@@ -30,6 +33,7 @@ class AudienceRestControllerTest {
 	private AudienceService audienceService;
 
 	@Test
+	@WithMockUser
 	public void testGetAllAudiences() throws Exception {
 		Audience audience1 = new Audience();
 		Audience audience2 = new Audience();
@@ -51,16 +55,18 @@ class AudienceRestControllerTest {
 	}
 
 	@Test
+	@WithMockUser
 	public void testAddAudience() throws Exception {
 		Audience audience = new Audience();
 		audience.setAudienceNumber(123);
 
 		mockMvc.perform(
-				post("/api/audiences").contentType(MediaType.APPLICATION_JSON).content("{\"audienceNumber\":123}"))
+				post("/api/audiences").with(SecurityMockMvcRequestPostProcessors.csrf()).contentType(MediaType.APPLICATION_JSON).content("{\"audienceNumber\":123}"))
 				.andExpect(status().isOk());
 	}
 
 	@Test
+	@WithMockUser
 	public void testGetAudienceById() throws Exception {
 		Audience audience = new Audience();
 		audience.setAudienceId(1);
@@ -74,19 +80,27 @@ class AudienceRestControllerTest {
 	}
 
 	@Test
+	@WithMockUser
 	public void testUpdateAudience() throws Exception {
 		Audience audience = new Audience();
 		audience.setAudienceId(1);
 		audience.setAudienceNumber(123);
 
-		mockMvc.perform(put("/api/audiences/1").contentType(MediaType.APPLICATION_JSON)
+		mockMvc.perform(put("/api/audiences/1").with(SecurityMockMvcRequestPostProcessors.csrf()).contentType(MediaType.APPLICATION_JSON)
 				.content("{\"audienceId\":1,\"audienceNumber\":123}")).andExpect(status().isOk())
 				.andExpect(content().json("{\"audienceId\":1,\"audienceNumber\":123}"));
 	}
 
 	@Test
+	@WithMockUser
 	public void testDeleteAudience() throws Exception {
-		mockMvc.perform(delete("/api/audiences/1")).andExpect(status().isNoContent());
+		mockMvc.perform(delete("/api/audiences/1").with(SecurityMockMvcRequestPostProcessors.csrf())).andExpect(status().isNoContent());
+	}
+
+	@Test
+	@WithAnonymousUser
+	void cannotGetAudienceIfNotAuthorized() throws Exception {
+		mockMvc.perform(get("/api/audiences/{id}", 1)).andExpect(status().isUnauthorized());
 	}
 
 }

@@ -16,6 +16,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithAnonymousUser;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -38,6 +41,7 @@ class LessonRestControllerTest {
 	private LessonService lessonService;
 
 	@Test
+	@WithMockUser
 	void testGetAllLessons() throws Exception {
 
 		List<Lesson> lessons = new LinkedList<>();
@@ -84,6 +88,7 @@ class LessonRestControllerTest {
 	}
 
 	@Test
+	@WithMockUser
 	void testAddLesson() throws Exception {
 
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -104,7 +109,7 @@ class LessonRestControllerTest {
 		lesson.setAudience(audience);
 		lesson.setTime(LocalDateTime.now());
 
-		mockMvc.perform(post("/api/lessons").contentType(MediaType.APPLICATION_JSON)
+		mockMvc.perform(post("/api/lessons").with(SecurityMockMvcRequestPostProcessors.csrf()).contentType(MediaType.APPLICATION_JSON)
 				.content(objectMapper.writeValueAsString(lesson))).andExpect(status().isOk());
 
 		Mockito.verify(lessonService, Mockito.times(1)).insert(lesson.getName(), lesson.getTeacher().getTeacherId(),
@@ -113,6 +118,7 @@ class LessonRestControllerTest {
 	}
 
 	@Test
+	@WithMockUser
 	void testGetLessonById() throws Exception {
 		Lesson lesson = new Lesson();
 		lesson.setLessonId(1);
@@ -136,6 +142,7 @@ class LessonRestControllerTest {
 	}
 
 	@Test
+	@WithMockUser
 	void testUpdateLesson() throws JsonProcessingException, Exception {
 
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -156,17 +163,24 @@ class LessonRestControllerTest {
 		lesson.setAudience(audience);
 		lesson.setTime(LocalDateTime.now());
 
-		mockMvc.perform(put("/api/lessons/1").contentType(MediaType.APPLICATION_JSON)
+		mockMvc.perform(put("/api/lessons/1").with(SecurityMockMvcRequestPostProcessors.csrf()).contentType(MediaType.APPLICATION_JSON)
 				.content(objectMapper.writeValueAsString(lesson))).andExpect(status().isOk());
 
 		Mockito.verify(lessonService, Mockito.times(1)).update(lesson);
 	}
 
 	@Test
+	@WithMockUser
 	void testDeleteLesson() throws Exception {
-		mockMvc.perform(delete("/api/lessons/1")).andExpect(status().isNoContent());
+		mockMvc.perform(delete("/api/lessons/1").with(SecurityMockMvcRequestPostProcessors.csrf())).andExpect(status().isNoContent());
 
 		Mockito.verify(lessonService, Mockito.times(1)).deleteById(1);
+	}
+	
+	@Test
+	@WithAnonymousUser
+	void cannotGetLessonIfNotAuthorized() throws Exception {
+		mockMvc.perform(get("/api/lessons/{id}", 1)).andExpect(status().isUnauthorized());
 	}
 
 }

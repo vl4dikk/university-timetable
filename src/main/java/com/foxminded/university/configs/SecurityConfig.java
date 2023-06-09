@@ -11,27 +11,23 @@ import java.util.Collection;
 import java.util.Map;
 
 @Configuration
-public class SecurityConfig{
-	
-	@Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity
-                .csrf().disable()
-                .authorizeHttpRequests(registry -> registry
-                        .requestMatchers("/api/**").authenticated()
-                        .anyRequest().permitAll()
-                )
-                .oauth2ResourceServer(oauth2Configurer -> oauth2Configurer.jwt(jwtConfigurer -> jwtConfigurer.jwtAuthenticationConverter(jwt -> {
-                    Map<String, Collection<String>> realmAccess = jwt.getClaim("realm_access");
-                    Collection<String> roles = realmAccess.get("roles");
-                    var grantedAuthorities = roles.stream()
-                            .map(role -> new SimpleGrantedAuthority("ROLE_" + role))
-                            .toList();
-                    return new JwtAuthenticationToken(jwt, grantedAuthorities);
-                })))
-        ;
+public class SecurityConfig {
 
-        return httpSecurity.build();
-    }
-	
+	@Bean
+	public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+		httpSecurity.csrf().disable()
+				.authorizeHttpRequests(
+						registry -> registry.requestMatchers("/api/**").authenticated().anyRequest().permitAll())
+				.oauth2ResourceServer(oauth2Configurer -> oauth2Configurer
+						.jwt(jwtConfigurer -> jwtConfigurer.jwtAuthenticationConverter(jwt -> {
+							Map<String, Collection<String>> realmAccess = jwt.getClaim("realm_access");
+							Collection<String> roles = realmAccess.get("roles");
+							var grantedAuthorities = roles.stream()
+									.map(role -> new SimpleGrantedAuthority("ROLE_" + role)).toList();
+							return new JwtAuthenticationToken(jwt, grantedAuthorities);
+						})));
+
+		return httpSecurity.build();
+	}
+
 }
