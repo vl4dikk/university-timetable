@@ -29,30 +29,30 @@ public class DaoConfig {
 
 	@Value("${spring.datasource.driver-class-name}")
 	private String driverClassName;
-	
+
 	@Value("${spring.jpa.hibernate.ddl-auto}")
 	private String ddlAuto;
-	
+
 	@Value("${spring.jpa.show-sql}")
 	private String showSql;
-	
+
 	@Value("${spring.jpa.properties.hibernate.dialect}")
 	private String dialect;
-	
-    @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-        LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
-        emf.setDataSource(dataSource());
-        emf.setPackagesToScan("com.foxminded.university.models");
-        emf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-        emf.setJpaProperties(hibernateProperties());
-        return emf;
-    }
 
-    @Bean
-    public PlatformTransactionManager transactionManager() {
-        return new JpaTransactionManager(entityManagerFactory().getObject());
-    }
+	@Bean
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
+		emf.setDataSource(dataSource());
+		emf.setPackagesToScan("com.foxminded.university.models");
+		emf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+		emf.setJpaProperties(hibernateProperties());
+		return emf;
+	}
+
+	@Bean
+	public PlatformTransactionManager transactionManager() {
+		return new JpaTransactionManager(entityManagerFactory().getObject());
+	}
 
 	@Bean
 	public DataSource dataSource() {
@@ -64,15 +64,13 @@ public class DaoConfig {
 		return dataSource;
 
 	}
-	
-    private Properties hibernateProperties() {
-        Properties properties = new Properties();
-        properties.put("hibernate.dialect", dialect);
-        properties.put("hibernate.show_sql", showSql);
-        properties.put("hibernate.hbm2ddl.auto", ddlAuto);
-        return properties;
-    }
-	
-	
+
+	private Properties hibernateProperties() {
+		Properties properties = new Properties();
+		properties.put("hibernate.dialect", dialect);
+		properties.put("hibernate.show_sql", showSql);
+		properties.put("hibernate.hbm2ddl.auto", ddlAuto);
+		return properties;
+	}
 
 }
